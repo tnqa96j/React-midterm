@@ -12,7 +12,7 @@ export default function ProductItem({product}){
     return(
       <div className={styles.item}>
          <div className={styles.sqare}>  
-            <img src="public/image/SPB7G000089.jpg" className={styles.img}/>
+            <img src="https://cdn.cite.com.tw/images/s/SPB7G000089.jpg" className={styles.img}/>
          </div>
 
          <h2 className={styles.name}>
