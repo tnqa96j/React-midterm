@@ -1,0 +1,13 @@
+.productlist{
+    border-bottom: 1px solid #373737;
+}
+.title{
+    color: black;
+    margin-top: 5%;
+}
+.btn{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}

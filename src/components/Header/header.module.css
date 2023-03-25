@@ -1,0 +1,82 @@
+.header{
+    position: relative;
+}
+.bar{
+    background:linear-gradient(to bottom, rgb(96, 84, 114) , transparent);
+    display: grid;
+    grid-template-areas:'logo nav space icongroup';
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    height: 12vh;
+    min-height: 80px;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+
+/*
+    1.logo圖片
+    2.文字導覽
+    3.空格
+    4.icon區
+
+    //記得設字體大小
+*/
+.logo{
+    grid-area:logo;
+    margin:auto auto;
+}
+.nav{
+    grid-area:nav;
+    display: flex;
+    align-items: flex-end
+}
+.icongroup{
+    grid-area:icongroup;
+    display: flex;
+    align-items: flex-end;
+    gap:7%;
+    margin-bottom: 3%;
+}
+.ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin-bottom: 2%;
+}
+.li{
+    margin: auto 20px;
+}
+.icon{
+    font-size: 1.75rem;
+}
+
+@media (max-width:992px) {
+    .bar{
+        grid-template-areas:'logo space icongroup';
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .nav{
+        display: none;
+    }
+    .icongroup{
+        align-items: center;
+    }
+}
+@media (max-width:430px) {
+    .bar{
+        grid-template-areas:'logo  icongroup';
+        grid-template-columns: 1fr  1fr;
+    }
+    .nav{
+        display: none;
+    }
+    .icongroup{
+        align-items: center;
+    }
+}
+/*還要做的:
+    1.螢幕寬度小於576px時其他三個icon消失
+    2.banner RWD調整高度和寬度
+*/

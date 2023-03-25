@@ -1,0 +1,87 @@
+.footer{
+    background-color: rgb(84, 65, 85);
+    display: grid;
+    grid-template-areas:
+    'logo nav member contact'
+    'copyright copyright copyright copyright';
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    height: auto;
+}
+.logo{
+    grid-area:logo;
+    margin: auto auto;
+}
+.nav{
+    grid-area:nav;
+}
+.member{
+    grid-area:member;
+}
+.contact{
+    grid-area:contact;
+}
+.copyright{
+    grid-area: copyright;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(47, 30, 62);
+    font-size: 0.5rem;
+}
+.icon{
+    display: none;
+}
+.block{
+    display: block;
+}
+h2{
+    font-weight: 250;
+    margin-top: 5%;
+}
+.ul{
+    list-style: none;
+    padding: 0;
+}
+.li{
+    font-size: 1rem;
+}
+@media (max-width:768px) {
+    .icon{
+        display: block;
+        font-size: 1.75rem;
+        display: flex;
+        gap: 10%;
+        justify-content: center;
+    }
+    .footer{
+        grid-template-areas:
+        'logo nav member'
+        'copyright copyright copyright';
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 3fr 1fr;
+    }
+    .contact{
+        display: none;
+    }
+}
+@media (max-width:576px) {
+    .footer{
+        grid-template-areas:
+        'logo logo'
+        'nav member'
+        'copyright copyright';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 5fr 1fr;
+    }
+    .logo{
+        margin-bottom: 5%;
+    }
+    .nav{
+        margin: 5% auto;
+    }
+    .member{
+        margin: 5% auto;
+    }
+}

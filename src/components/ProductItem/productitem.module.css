@@ -1,0 +1,23 @@
+.item{
+    background-color:rgb(183, 222, 200);/*利用grid system直接分配寬度，不用另外宣告*/
+    border: 5px solid rgb(183, 222, 200);
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.img{
+    width: 100%;
+    border-radius: 10px;
+}
+/*img rwd
+    1.object-position
+    2.object-fit    
+*/
+
+.name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}

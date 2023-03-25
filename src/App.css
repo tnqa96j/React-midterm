@@ -1,0 +1,84 @@
+/*global css*/
+.container {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  margin: auto;
+}
+
+@media (max-width: 576px) { 
+  .container {
+  width: 80%;
+  }
+}
+
+@media (min-width: 576px) {  /*手機*/
+.container {
+ width: 540px;
+}
+} 
+
+@media (min-width: 768px) {  /*平板*/
+.container {
+  width: 680px;
+}
+} 
+
+@media (min-width: 992px) {
+.container {
+  width: 960px;
+}
+} 
+
+@media (min-width: 1200px) {  /*筆電*/
+.container {
+  width: 1140px;
+}
+} 
+
+
+@media (min-width: 1600px) {  /*桌機*/
+.container {
+  width: 1500px;
+}
+} 
+
+/* body */
+body {
+
+font-size: 16px;
+line-height: 1.6;
+color: white;
+}
+
+.mainLayout{
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: 
+    'header'
+    'content'
+    'footer'
+  ;
+  grid-template-rows: auto 1fr auto;
+  gap: 1em;
+}
+
+.layoutHeader {
+  grid-area: header;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #6f7d9c;
+}
+
+.layoutContent{
+  grid-area: content;
+  height: auto;
+}
+
+.layoutFooter {
+  grid-area: footer;
+  padding: 0;
+  height: auto;
+  line-height: 1.6;
+  background-color: #495470;
+}
