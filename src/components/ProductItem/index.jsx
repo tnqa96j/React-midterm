@@ -12,7 +12,7 @@ export default function ProductItem({product}){
     return(
       <div className={styles.item}>
          <div className={styles.sqare}>  
-            <img src="https://cdn.cite.com.tw/images/s/SPB7G000089.jpg" className={styles.img}/>
+            <img src="https://www.look-in.com.tw/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNjBaQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--dbcfd4f6065a50120149157bf369ea34a57c44d2/%E5%BE%AC%E5%BE%A8%E4%B9%8B%E5%88%83.jpg" className={styles.img}/>
          </div>
 
          <h2 className={styles.name}>
