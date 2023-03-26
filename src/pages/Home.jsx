@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import ProductList from "../components/ProductList";
-import ProductItem from "../components/ProductItem";
 import Footer from "../components/Footer";
 import products from "../json/products.json";
 
@@ -12,7 +11,7 @@ import products from "../json/products.json";
 export default function Home(){
 
     return(
-        <div className="">
+        <div>
             <Header />
             <div className="container layoutContent">
                 <ProductList products={products}/>

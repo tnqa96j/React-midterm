@@ -18,9 +18,13 @@ export default function ProductList({ products }) {
         read more btn
         底線  
     */
+        const isHome = window.location.pathname === "/"; //判斷目前是否在首頁
+
   return (
     <div className={styles.productlist}>
-      <h1 className={styles.title}>小說推薦</h1>
+
+    {isHome &&
+      <h1 className={styles.title}>小說推薦</h1> }
 
       <Row gutter={[32, 32]}>
         {products.map(product => (
@@ -36,9 +40,10 @@ export default function ProductList({ products }) {
         ))}
       </Row>
       
-      <div className={styles.btn}>
+      {isHome && <div className={styles.btn}>
       <Button type="primary" size="large" icon={<RightOutlined /> } >查看更多</Button>
-      </div>
+      </div> }
+
     </div>
   );
 }

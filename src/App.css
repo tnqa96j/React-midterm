@@ -4,6 +4,7 @@
   display: flex;
   align-self: center;
   margin: auto;
+  flex-direction: column;
 }
 
 @media (max-width: 576px) { 
@@ -81,4 +82,11 @@ color: white;
   height: auto;
   line-height: 1.6;
   background-color: #495470;
+}
+.productTotalContent{
+  display: grid;
+  grid-template-areas: 
+  'sidemenu productlist';
+  grid-template-columns: 1fr 4fr;
+  margin-bottom: 15%;
 }
