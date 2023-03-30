@@ -14,7 +14,7 @@ export default function Home(){
         <div>
             <Header />
             <div className="container layoutContent">
-                <ProductList products={products}/>
+                <ProductList products={products} showAll={false}/>
             </div>
             <Footer className="layoutFooter"/>
         </div>

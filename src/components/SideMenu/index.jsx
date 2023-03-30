@@ -1,5 +1,5 @@
 import { Menu } from 'antd';
-
+import '../../App.css';
 
 export default function SideMenu() {
     const { SubMenu } = Menu;
@@ -34,7 +34,7 @@ export default function SideMenu() {
         },
     ]
     return (
-        <Menu mode="inline"> 
+        <Menu mode="inline" breakpoint="lg"> 
             {items.map((item) =>
                 item.items ? (
                     <SubMenu key={item.key}  title={item.title}>

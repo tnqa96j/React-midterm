@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
-import ProductsTotal from './pages/ProductsTotal';
+import AllProducts from './pages/AllProducts';
+import Product from './pages/Product';
 import Qa from './pages/Qa';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>} />
-      <Route path='ProductsTotal' element={<ProductsTotal/>} />
+      <Route path='ProductsTotal' element={<AllProducts/>} />
+      <Route path='ProductDetail' element={<Product/>} />
       <Route path='About' element={<About/>} />
       <Route path='Qa' element={<Qa/>}/>
     </Routes>
