@@ -13,13 +13,15 @@ export default function ProductItem({ product }) {
   return (
     <div className={styles.item}>
       <div className={styles.sqare}>
-        <Link to={"/ProductDetail"}>
+        <Link to={`/product/id/${product.id}`}>
           <img src={product.image} className={styles.img} />
         </Link>
       </div>
 
-      <h2 className={styles.name}>
-        {product.name}
+      <h2>
+        <Link to={`/product/id/${product.id}` } className={styles.name}>
+          {product.name}
+        </Link>
       </h2>
 
       <h3 className={styles.writer}>

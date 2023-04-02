@@ -1,12 +1,13 @@
-import styles from "./ProductsTotal.module.css"
 import '../../App.css';
 import SideMenu from "../SideMenu";
 import ProductList from "../ProductList";
 import { Row, Col } from "antd";
 
 
-export default function ProductsTotal({products}) {
+
+export default function ProductsTotal({ products }) {
     /*這是一個包含SideMenu和ProductList的元件 */
+
     return (
         <Row gutter={[32, 32]}>
             <Col
@@ -21,7 +22,9 @@ export default function ProductsTotal({products}) {
                 sm={{ span: 24 }}
                 md={{ span: 18 }}
             >
-                <ProductList products={products} showAll={true}/>
+                <ProductList products={products} showAll={true} />
+
+                <div style={{marginBottom:'15%'}}></div>
             </Col>
         </Row>
     );

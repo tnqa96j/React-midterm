@@ -66,6 +66,9 @@
     color: black;
     margin-left: 5%;
 }
+.name:hover{
+    color: rgb(96, 96, 96);
+}
 .price{
     color: black;
     margin-left: 5%;

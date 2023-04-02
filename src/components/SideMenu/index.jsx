@@ -1,7 +1,8 @@
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import '../../App.css';
 
-export default function SideMenu() {
+export default function SideMenu({onClose}) {
     const { SubMenu } = Menu;
     const items = [
         {
@@ -33,18 +34,24 @@ export default function SideMenu() {
             key: 'Merch',
         },
     ]
+
+
+    
     return (
-        <Menu mode="inline" breakpoint="lg"> 
+        <Menu mode="inline" breakpoint="lg" style={{width:'100%',borderInlineEnd:'0px'}}> 
+
             {items.map((item) =>
                 item.items ? (
-                    <SubMenu key={item.key}  title={item.title}>
+                    <SubMenu key={item.key}  title={item.title} >
                         {item.items.map((child) => (
-                            <Menu.Item key={child.key}>{child.title}</Menu.Item>
+                            <Menu.Item key={child.key} onClick={() => {onClose()}}>
+                                <Link to={`/AllProducts/category/${child.key}`}>{child.title}</Link>
+                            </Menu.Item>
                         ))}
                     </SubMenu>
                 ) : (
-                    <Menu.Item key={item.key}>
-                        {item.title}
+                    <Menu.Item key={item.key} onClick={() => {onClose()}}>
+                        <Link to={`/AllProducts/category/${item.key}`}>{item.title}</Link>
                     </Menu.Item>
                 )
             )}
