@@ -2,6 +2,7 @@ import styles from "./productdetail.module.css"
 import '../../App.css';
 import PaymentAndShipping from "../PaymentAndShipping";
 import { Row, Col, InputNumber, Button, Image, Tabs } from "antd";
+import BreadcrumbNavbar from "../BreadcrumbNavbar";
 
 export default function ProductDetail({ product }) {
     const onChange = (value, key) => {
@@ -13,7 +14,7 @@ export default function ProductDetail({ product }) {
 
 
     /*這是一個包含「單一」商品的所有資訊的元件
-        1.麵包屑導覽(現在先用h1代替)
+        1.麵包屑導覽(現在先用h1代替)category,subCategory,breadcrumbCategory,breadcrumbSubCategory
         2.圖片
         3.商品標題
         4.價格
@@ -26,6 +27,7 @@ export default function ProductDetail({ product }) {
      */
     return (
         <div>
+            <BreadcrumbNavbar category={product.category} subCategory={product.subCategory} breadcrumbCategory={`${product.categoryTitle}`} breadcrumbSubCategory={`${product.subCategoryTitle}`} productName={`${product.name}`}></BreadcrumbNavbar>
             <Row gutter={[32, 32]}>
                 <Col
                     xs={{ span: 24 }}

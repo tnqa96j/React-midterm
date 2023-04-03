@@ -38,6 +38,7 @@
     align-items: flex-end;
     gap:7%;
     margin-bottom: 3%;
+    justify-content: center;
 }
 .ul{
     list-style: none;
@@ -48,12 +49,35 @@
 .li{
     margin: auto 20px;
     text-decoration: none;
+    font-size: 0.9rem;
 }
 .icon{
     font-size: 1.75rem;
+    color: white;
+}
+.icon:hover{
+    color: rgb(244, 211, 238);
+    cursor: pointer;
 }
 
-@media (max-width:992px) {
+.menu{
+    grid-area:menu;
+    display: none;
+}
+
+.search{
+    grid-area:search;
+}
+
+.user{
+    grid-area:user;
+}
+.shop{
+    grid-area:shop;
+    
+}
+
+@media (max-width:767px) {
     .bar{
         grid-template-areas:'logo space icongroup';
         grid-template-columns: 1fr 1fr 1fr;
@@ -64,11 +88,21 @@
     .icongroup{
         align-items: center;
     }
+    .menu{
+        display: block;
+    }
 }
+
+@media (max-width:576px) {
+    .user{
+        display: none;
+    }
+}
+
 @media (max-width:430px) {
     .bar{
         grid-template-areas:'logo  icongroup';
-        grid-template-columns: 1fr  1fr;
+        grid-template-columns: 1fr  0.8fr;
     }
     .nav{
         display: none;

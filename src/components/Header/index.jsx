@@ -2,15 +2,16 @@ import '../../App.css';
 import styles from "./header.module.css";
 import { SearchOutlined, ShoppingCartOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer } from 'antd';
+import { Drawer, Badge, Popover, Avatar } from 'antd';
 import SideMenu from '../SideMenu';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
+import BreadcrumbNavbar from '../BreadcrumbNavbar';
 
 
-function Header() {
+function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
     /*header區塊 切成(1)logo區、
                     
                     (2)文字導覽區(nav)、--->用Link連至其他固定頁面(在App.jsx裡設定路徑)
@@ -28,8 +29,23 @@ function Header() {
         setIsDrawerOpen(false);
     };
 
-    const isMobile = useMediaQuery(`(max-width:991.98px)`);
+    const isMobile = useMediaQuery(`(max-width:766.98px)`);
 
+    const CategoryClick = (category,subCategory,breadcrumbCategory,breadcrumbSubCategory) => {
+        setCategory(category);
+        setSubCategory(subCategory);
+        setBreadcrumbCategory(breadcrumbCategory);
+        setBreadcrumbSubCategory(breadcrumbSubCategory);
+        console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
+      };
+
+    const text = <span>Title</span>;
+    const content = (
+        <div>
+            <p>Content</p>
+            <p>Content</p>
+        </div>
+    );
 
     return (
         <div className={styles.header}>
@@ -57,35 +73,41 @@ function Header() {
                 </div>
 
                 <div className={styles.icongroup}>
-                    <SearchOutlined className={styles.icon} />
-                    <UserOutlined className={styles.icon} />
-                    <ShoppingCartOutlined className={styles.icon} />
-                    <MenuOutlined className={styles.icon} onClick={toggleDrawer} />
+                    <Avatar shape="square" className={styles.search} icon={<SearchOutlined className={styles.icon} />} />
+
+                    <Avatar shape="square" className={styles.user} icon={<UserOutlined className={styles.icon} />} />
+
+
+
+                    <Popover placement="bottomRight" title={text} content={content} trigger="click">
+                        <Badge count={5} color="#6366F2" style={{ color: 'white' }}>
+                            <Avatar shape="square" className={styles.shop} icon={<ShoppingCartOutlined className={styles.icon} />} />
+                        </Badge>
+
+                    </Popover>
+
+                    <Avatar shape="square" className={styles.menu} icon={<MenuOutlined className={styles.icon} onClick={toggleDrawer} />} />
                 </div>
 
-                {isMobile
-                    ? <Drawer
-                        open={isDrawerOpen}
-                        onClose={onClose}
-                        placement="right"
-                        width={'100%'}
-                    >
-                        <SideMenuForMobile onClose={onClose} />
-                    </Drawer>
-                    : <Drawer
-                        open={isDrawerOpen}
-                        onClose={onClose}
-                        placement="right"
-                    >
-                        <SideMenu onClose={onClose} />
-                    </Drawer>
-                }
+                <Drawer
+                    open={isDrawerOpen}
+                    onClose={onClose}
+                    placement="right"
+                    width={'60%'}
+                >
+                    <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick}/>
+                </Drawer>
+    
+
+
 
 
 
             </div>
             {isHome && <Banner />}
+
         </div>
+
 
     );
 }

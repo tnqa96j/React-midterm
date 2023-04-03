@@ -11,13 +11,12 @@ export default function Product() {
     const product = products.find(
         (x) => x.id === productId
     );
-    
+
     return (
         <div>
             <Helmet><title>{`宅小物 — ${product.name}`}</title></Helmet>
             <Header />
             <div className="container" style={{ marginBottom: '15%' }}>
-                <h1 style={{ color: 'black', marginTop: '15%' }}>商品總覽＞小說＞懸疑推理</h1>
                 <ProductDetail product={product} />
             </div>
 
