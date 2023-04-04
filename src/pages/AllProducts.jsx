@@ -10,7 +10,7 @@ import BreadcrumbNavbar from "../components/BreadcrumbNavbar";
 
 /*商品導覽是否用麵包屑導覽代替?ㄋ */
 /*BreadcrumbNavbar需要4個參數 */
-export default function AllProducts() {
+export default function AllProducts({category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
     const { categoryName, subCategoryName } = useParams();
 
 
@@ -23,31 +23,53 @@ export default function AllProducts() {
                 x?.subCategory.toUpperCase() === subCategoryName.toUpperCase()
             )
 
+    
+    const title = !categoryName
+            ? "商品總覽"
+            : !subCategoryName
+                ?`商品總覽 — ${_products[0]?.categoryTitle}`
+                :`商品總覽 — ${_products[0]?.categoryTitle} — ${_products[0]?.subCategoryTitle}`
 
-
-    const title = !subCategoryName
+    const title2 = !subCategoryName
         ? "商品總覽"
         : `商品總覽 — ${_products[0]?.subCategory}`;
 
 
-    const [category, setCategory] = useState('');
-    const [subCategory, setSubCategory] = useState('');
-    const [breadcrumbCategory, setBreadcrumbCategory] = useState('');
-    const [breadcrumbSubCategory, setBreadcrumbSubCategory] = useState('');
 
+
+
+    const handleBreadCrumbClick = (path) => {
+        if (path === '/AllProducts') {
+          setBreadcrumbCategory(null);
+          setBreadcrumbSubCategory(null);
+
+          console.log("AllProducts");
+        } else if (path.startsWith('/AllProducts/category/')) {
+          const parts = path.split('/');
+          if (parts.length === 4) {
+            setBreadcrumbCategory(parts[3]);
+            setBreadcrumbSubCategory(null);
+
+          } else if (parts.length === 5) {
+            setBreadcrumbCategory(parts[3]);
+            setBreadcrumbSubCategory(parts[4]);
+
+          }
+        }
+      };
 
     return (
         <div>
             <Helmet><title>{title}</title></Helmet>
 
-            <Header category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory}/>
+            <Header category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
 
             <div className="container layoutContent">
                 <div style={{ marginTop: '3vh' }}></div>
 
-                <BreadcrumbNavbar category={category} subCategory={subCategory} breadcrumbCategory={breadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} />
+                <BreadcrumbNavbar category={category} subCategory={subCategory} breadcrumbCategory={breadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} handleBreadCrumbClick={handleBreadCrumbClick}/>
 
-                <ProductsTotal products={_products} category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory}/>
+                <ProductsTotal products={_products} category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
             </div>
             <Footer />
         </div>

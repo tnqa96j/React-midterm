@@ -50,7 +50,7 @@ export default function SideMenuForMobile({ onClose ,CategoryClick}) {
                 {items.map((item) =>
                     item.items ? (
                         <SubMenu key={item.key} title={item.title} >
-                            <Menu.Item key={item.key+`total`}><Link to={`/AllProducts/category/${item.key}`}>全部</Link></Menu.Item>
+                            <Menu.Item key={item.key+`total`} onClick = {()=>onClose()}><Link to={`/AllProducts/category/${item.key}`}>全部</Link></Menu.Item>
                             {item.items.map((child) => (
                                 <Menu.Item key={child.key} onClick={() => { onClose() ; CategoryClick(item.key, child.key,item.title,child.title);}}>
                                     <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>

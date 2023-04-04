@@ -23,7 +23,6 @@ export default function ProductsTotal({ products ,category,setCategory,subCatego
 
     return (
         <div>
-            <h1 style={{color:'black'}}>商品一覽</h1>
             <Row gutter={[32, 32]}>
                 <Col
                     xs={{ span: 0 }}
