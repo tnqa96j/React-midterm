@@ -19,6 +19,7 @@ export default function Product({category,setCategory,subCategory,setSubCategory
             <Helmet><title>{`宅小物 — ${product.name}`}</title></Helmet>
             <Header />
             <div className="container" style={{ marginBottom: '15%' }}>
+            <div style={{ marginTop: '5vh' }}></div>
                 <ProductDetail product={product} category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory}/>
             </div>
 

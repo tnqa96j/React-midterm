@@ -1,0 +1,49 @@
+.icon {
+    font-size: 1.75rem;
+    color: white;
+}
+
+.icon:hover {
+    color: rgb(244, 211, 238);
+    cursor: pointer;
+}
+
+.item {
+    width:300px;
+    
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    gap:1rem;
+    margin: auto 10px;
+}
+@media (max-width:767px) {
+    .item{
+        width: 80vw;
+    }
+}
+.img {
+    max-width: 4rem;
+    flex: 1 1;
+}
+.content{
+    width: 60%;
+}
+.productTitle{
+    text-align: left;
+}
+.delete {
+    font-size: 1.2rem;
+    opacity: 0.6;
+    text-align: right;
+    cursor: pointer;
+    
+  }
+  .totalprice{
+    text-align: end;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }

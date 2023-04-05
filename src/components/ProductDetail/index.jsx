@@ -3,15 +3,10 @@ import '../../App.css';
 import PaymentAndShipping from "../PaymentAndShipping";
 import { Row, Col, InputNumber, Button, Image, Tabs } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
+import AddToBasketBtn from "../AddToBasketBtn";
+import { useState } from "react";
 
-export default function ProductDetail({ product ,category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
-    const onChange = (value, key) => {
-        console.log('changed', value);
-        console.log(key);
-    };
-    
-    const { countInStock } = product;
-
+export default function ProductDetail({ product, category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
 
     const handleBreadCrumbClick = (path) => {
         setCategory(product.category);
@@ -20,25 +15,33 @@ export default function ProductDetail({ product ,category,setCategory,subCategor
         setBreadcrumbSubCategory(product.subCategoryTitle);
 
         if (path === '/AllProducts') {
-          setBreadcrumbCategory(null);
-          setBreadcrumbSubCategory(null);
-
-          console.log("AllProducts");
-        } else if (path.startsWith('/AllProducts/category/')) {
-          const parts = path.split('/');
-          if (parts.length === 4) {
-            setBreadcrumbCategory(parts[3]);
+            setBreadcrumbCategory(null);
             setBreadcrumbSubCategory(null);
 
-          } else if (parts.length === 5) {
-            setBreadcrumbCategory(parts[3]);
-            setBreadcrumbSubCategory(parts[4]);
+            console.log("AllProducts");
+        } else if (path.startsWith('/AllProducts/category/')) {
+            const parts = path.split('/');
+            if (parts.length === 4) {
+                setBreadcrumbCategory(parts[3]);
+                setBreadcrumbSubCategory(null);
 
-          }
+            } else if (parts.length === 5) {
+                setBreadcrumbCategory(parts[3]);
+                setBreadcrumbSubCategory(parts[4]);
+
+            }
         }
-      };
-    
+    };
 
+    const [qty, setQty] = useState(product.countInStock > 0 ? 1 : 0);
+
+    const onChange = (value) => {
+        setQty(value);
+        console.log('changed', value);
+
+    };
+
+    const {countInStock} =product;
 
     /*這是一個包含「單一」商品的所有資訊的元件
         1.麵包屑導覽(現在先用h1代替)category,subCategory,breadcrumbCategory,breadcrumbSubCategory
@@ -70,12 +73,12 @@ export default function ProductDetail({ product ,category,setCategory,subCategor
                     <h2 className={styles.price}>{product.currency} {product.price}</h2>
                     <h3 className={styles.countInstock}>{`在庫數量：${product.countInStock}`}</h3>
 
-                    { countInStock > 0 
-                            ?(<InputNumber size="large" min={1} max={product.countInStock} defaultValue={1} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
-                            :(<InputNumber   disabled size="large" min={0} max={0} defaultValue={0} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
+                    {countInStock > 0
+                        ? (<InputNumber size="large" min={1} max={product.countInStock} defaultValue={1} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
+                        : (<InputNumber disabled size="large" min={0} max={0} defaultValue={0} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
                     }
-                    
-                    <Button type="primary" block size="large" style={{ display: 'block', marginTop: '2%', marginBottom: '2%' }}>加入購物車</Button>
+
+                    <AddToBasketBtn product={product} qty={qty} />
                     <PaymentAndShipping />
                 </Col>
             </Row>

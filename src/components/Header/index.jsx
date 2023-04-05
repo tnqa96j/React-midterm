@@ -1,14 +1,13 @@
 import '../../App.css';
 import styles from "./header.module.css";
-import { SearchOutlined, ShoppingCartOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { SearchOutlined , UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, Badge, Popover, Avatar } from 'antd';
-import SideMenu from '../SideMenu';
+import { Drawer,  Avatar } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
-import BreadcrumbNavbar from '../BreadcrumbNavbar';
+import CartSummary from '../CartSummary';
 
 
 function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
@@ -39,13 +38,7 @@ function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCateg
         console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
       };
 
-    const text = <span>Title</span>;
-    const content = (
-        <div>
-            <p>Content</p>
-            <p>Content</p>
-        </div>
-    );
+
 
     return (
         <div className={styles.header}>
@@ -73,18 +66,14 @@ function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCateg
                 </div>
 
                 <div className={styles.icongroup}>
+                <CartSummary />
                     <Avatar shape="square" className={styles.search} icon={<SearchOutlined className={styles.icon} />} />
+
+                    
 
                     <Avatar shape="square" className={styles.user} icon={<UserOutlined className={styles.icon} />} />
 
-
-
-                    <Popover placement="bottomRight" title={text} content={content} trigger="click">
-                        <Badge count={5} color="#6366F2" style={{ color: 'white' }}>
-                            <Avatar shape="square" className={styles.shop} icon={<ShoppingCartOutlined className={styles.icon} />} />
-                        </Badge>
-
-                    </Popover>
+                   
 
                     <Avatar shape="square" className={styles.menu} icon={<MenuOutlined className={styles.icon} onClick={toggleDrawer} />} />
                 </div>

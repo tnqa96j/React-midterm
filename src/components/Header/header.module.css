@@ -65,17 +65,7 @@
     display: none;
 }
 
-.search{
-    grid-area:search;
-}
 
-.user{
-    grid-area:user;
-}
-.shop{
-    grid-area:shop;
-    
-}
 
 @media (max-width:767px) {
     .bar{
