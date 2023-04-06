@@ -27,15 +27,17 @@ export default function CartSummary() {
     const content = (
         <div style={{ maxHeight: '400px', overflow: 'auto' }}>
             {cartItems.length === 0 ? (
-                <div style={{marginBottom:'1rem'}}>您尚未選購任何商品</div>
+                <div style={{ marginBottom: '1rem' }}>您尚未選購任何商品</div>
             ) : (
                 cartItems.map((item) => (
                     <li key={item.id} className={styles.item}>
-                        <img
-                            className={styles.img}
-                            src={item.image}
-                            alt={item.name}
-                        />
+                        <Link to={`/product/id/${item.id}`} >
+                            <img
+                                className={styles.img}
+                                src={item.image}
+                                alt={item.name}
+                            />
+                        </Link>
                         <div className={styles.content}>
                             <div className={styles.productTitle}>{item.name}</div>
                             <div className={styles.qty}>數量：{item.qty}件</div>
@@ -47,6 +49,7 @@ export default function CartSummary() {
                         >
                             x
                         </div>
+
                     </li>
                 ))
             )}
@@ -55,7 +58,7 @@ export default function CartSummary() {
                 : (
                     <div>
                         <div className={styles.totalprice}>總金額：${getTotalPrice()}</div>
-                    <Button block type="primary">結帳</Button>
+                        <Button block type="primary">結帳</Button>
                     </div>)
             }
         </div>

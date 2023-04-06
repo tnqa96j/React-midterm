@@ -32,6 +32,12 @@
     display: flex;
     align-items: flex-end
 }
+.switcher{
+    grid-area:space;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
 .icongroup{
     grid-area:icongroup;
     display: flex;

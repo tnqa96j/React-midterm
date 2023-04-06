@@ -1,7 +1,7 @@
 import styles from "./productdetail.module.css"
 import '../../App.css';
 import PaymentAndShipping from "../PaymentAndShipping";
-import { Row, Col, InputNumber, Button, Image, Tabs } from "antd";
+import { Row, Col, InputNumber, Image, Tabs } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
 import AddToBasketBtn from "../AddToBasketBtn";
 import { useState } from "react";

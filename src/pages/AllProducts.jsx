@@ -4,7 +4,7 @@ import ProductsTotal from "../components/ProductsTotal";
 import products from "../json/products.json";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { theme } from "antd";
 import BreadcrumbNavbar from "../components/BreadcrumbNavbar";
 
 
@@ -34,7 +34,9 @@ export default function AllProducts({category,setCategory,subCategory,setSubCate
         ? "商品總覽"
         : `商品總覽 — ${_products[0]?.subCategory}`;
 
-
+        const {
+          token: { colorBgBase, colorTextBase },
+      } = theme.useToken();
 
 
 
@@ -60,7 +62,14 @@ export default function AllProducts({category,setCategory,subCategory,setSubCate
 
     return (
         <div>
-            <Helmet><title>{title}</title></Helmet>
+            <Helmet><title>{title}</title>
+            <style>{`
+            body { 
+              background-color: ${colorBgBase}; 
+              color: ${colorTextBase}
+            }
+        `}</style>
+            </Helmet>
 
             <Header category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
 

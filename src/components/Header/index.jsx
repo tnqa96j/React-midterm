@@ -1,16 +1,17 @@
 import '../../App.css';
 import styles from "./header.module.css";
-import { SearchOutlined , UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { SearchOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer,  Avatar } from 'antd';
+import { Drawer, Avatar } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
 import CartSummary from '../CartSummary';
+import DayNightSwitcher from '../DayNightSwitcher';
 
 
-function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
+function Header({ category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
     /*header區塊 切成(1)logo區、
                     
                     (2)文字導覽區(nav)、--->用Link連至其他固定頁面(在App.jsx裡設定路徑)
@@ -30,13 +31,13 @@ function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCateg
 
     const isMobile = useMediaQuery(`(max-width:766.98px)`);
 
-    const CategoryClick = (category,subCategory,breadcrumbCategory,breadcrumbSubCategory) => {
+    const CategoryClick = (category, subCategory, breadcrumbCategory, breadcrumbSubCategory) => {
         setCategory(category);
         setSubCategory(subCategory);
         setBreadcrumbCategory(breadcrumbCategory);
         setBreadcrumbSubCategory(breadcrumbSubCategory);
         console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
-      };
+    };
 
 
 
@@ -65,15 +66,17 @@ function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCateg
                     </ul>
                 </div>
 
+                <div className={styles.switcher}>
+                    {(!isMobile) &&<DayNightSwitcher />}
+                </div>
+
                 <div className={styles.icongroup}>
-                <CartSummary />
+
+                    <CartSummary />
+
                     <Avatar shape="square" className={styles.search} icon={<SearchOutlined className={styles.icon} />} />
 
-                    
-
                     <Avatar shape="square" className={styles.user} icon={<UserOutlined className={styles.icon} />} />
-
-                   
 
                     <Avatar shape="square" className={styles.menu} icon={<MenuOutlined className={styles.icon} onClick={toggleDrawer} />} />
                 </div>
@@ -84,9 +87,10 @@ function Header({category,setCategory,subCategory,setSubCategory,breadcrumbCateg
                     placement="right"
                     width={'60%'}
                 >
-                    <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick}/>
+                    <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick} />
+                    {(isMobile) &&<DayNightSwitcher />}
                 </Drawer>
-    
+
 
 
 

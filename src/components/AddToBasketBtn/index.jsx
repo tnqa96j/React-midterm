@@ -8,7 +8,7 @@ export default function AddToBasketBtn({ product, qty }) {
   
     const openNotification = () => {
       notification.open({
-        message: '已成功加入購物車！',
+        message: '已成功加入購物清單',
         placement: 'bottom',
         duration:2,
       });
