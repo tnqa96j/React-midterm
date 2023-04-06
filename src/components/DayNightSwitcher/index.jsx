@@ -39,7 +39,7 @@ export default function DayNightSwitcher() {
         size="small"
         activeindex={SunMode === true ? 0 : 1} // 根據 lightMode 狀態選擇 activeIndex
         onChange={toggleColor}
-        defaultValue={ lightMode === true ? 0 : 1}
+        defaultValue={ lightMode ? "Sun" : "Moon"}
       />
     </div>
   );
