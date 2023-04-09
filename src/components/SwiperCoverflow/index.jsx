@@ -6,6 +6,8 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
+import { Divider, Tooltip } from "antd";
+
 import styles from "./swipercoverflow.module.css";
 import { EffectCoverflow, Pagination } from "swiper";
 import { useState, useEffect } from "react";
@@ -27,7 +29,7 @@ export default function SwiperCoverflow({ products }) {
     return (
         <>
             <div style={{ marginTop: '50px', marginBottom: '20px' }}>
-                <h1>新品上市</h1>
+                <Divider><h1>新品上市</h1></Divider>
                 <Swiper
                     effect={"coverflow"}
                     grabCursor={true}
@@ -47,7 +49,9 @@ export default function SwiperCoverflow({ products }) {
                     {latestProducts.map((product) => (
                         <SwiperSlide key={product.id} className={styles.swiperSlide}>
                             <Link to={`/product/id/${product.id}`}>
-                                <img src={product.image} alt={product.name} className={styles.img} />
+                                <Tooltip placement="bottom" title={`上架時間:${product.date}`}>
+                                    <img src={product.image} alt={product.name} className={styles.img} />
+                                </Tooltip>
                             </Link>
                         </SwiperSlide>
                     ))}

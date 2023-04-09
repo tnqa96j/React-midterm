@@ -47,3 +47,12 @@
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
+  .shop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .shop:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+  }

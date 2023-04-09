@@ -1,17 +1,23 @@
 .footer{
-    background-color: rgb(204, 152, 207);
     display: grid;
     grid-template-areas:
     'logo nav member contact'
     'copyright copyright copyright copyright';
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 3fr 1fr;
-    height: auto;
+    height:auto;
 }
 .logo{
     grid-area:logo;
-    margin: auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
 }
+.img {
+    width: 60%;
+    margin-block-start: 1.2em;}
 .nav{
     grid-area:nav;
 }
@@ -27,7 +33,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(104, 67, 136);
     font-size: 0.5rem;
 }
 .icon{

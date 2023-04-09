@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from "./productitem.module.css";
 import '../../App.css';
+import { theme } from 'antd';
 
 export default function ProductItem({ product }) {
 
@@ -10,16 +11,19 @@ export default function ProductItem({ product }) {
     3.商品標題
     4.價錢
   */
+    const {
+      token: { colorProductItem ,colorTextBase ,colorBgBase}
+  } = theme.useToken();
   return (
-    <div className={styles.item}>
-      <div className={styles.sqare}>
+    <div className={styles.item} style={{backgroundColor:colorProductItem,borderColor:colorProductItem}}>
+      <div className={styles.sqare} >
         <Link to={`/product/id/${product.id}`}>
           <img src={product.image} className={styles.img} />
         </Link>
       </div>
 
       <h2>
-        <Link to={`/product/id/${product.id}` } className={styles.name}>
+        <Link to={`/product/id/${product.id}` } className={styles.name} style={{color:colorTextBase}}>
           {product.name}
         </Link>
       </h2>

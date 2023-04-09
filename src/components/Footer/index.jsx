@@ -1,16 +1,21 @@
 import styles from './footer.module.css'
 import '../../App.css';
-import { FacebookFilled, TwitterOutlined , InstagramFilled  } from '@ant-design/icons';
+import { FacebookFilled, TwitterOutlined, InstagramFilled } from '@ant-design/icons';
+import { theme } from 'antd';
 
-export default function Footer(){
-    return(
-        <div className={styles.footer}>
+export default function Footer() {
+
+    const {
+        token: { colorBgHeader2, colorTopNavBar, logoImgBar2,colorBgFooter }
+    } = theme.useToken();
+    return (
+        <div className={styles.footer} style={{backgroundColor:colorBgHeader2}}>
             <div className={styles.logo}>
-                <h2>LOGO</h2>
+                <img src={logoImgBar2} className={styles.img} />
                 <div className={styles.icon}>
-                    <FacebookFilled/>
-                    <InstagramFilled/>
-                    <TwitterOutlined/>
+                    <FacebookFilled />
+                    <InstagramFilled />
+                    <TwitterOutlined />
                 </div>
             </div>
             <div className={styles.nav}>
@@ -38,7 +43,7 @@ export default function Footer(){
                     <li className={styles.li}>TWITTER</li>
                 </ul>
             </div>
-            <div className={styles.copyright}>© 1995-2022 台灣股份有限公司 版權所有</div>
+            <div className={styles.copyright} style={{backgroundColor:colorBgFooter}}>© 1995-2022 台灣股份有限公司 版權所有</div>
         </div>
     );
 }

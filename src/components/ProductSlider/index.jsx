@@ -1,10 +1,10 @@
 import styles from "./productslider.module.css";
 import '../../App.css';
-import { Row, Col, Button } from "antd";
+import { Button, Divider } from "antd";
 import ProductItem from "../ProductItem";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { theme } from "antd";
 
 // Import Swiper styles
 import "swiper/css";
@@ -25,15 +25,17 @@ export default function ProductSlider({ products }) {
 
   //const _Products = showAll ? products : products.slice(0, 6); //判斷是否showAll
 
-
+  const {
+    token: {  colorTopNavBar },
+  } = theme.useToken();
 
 
   return (
     <div>
-      <h1 className={styles.title}>小說推薦</h1>
+      <Divider orientation="left"><h1 className={styles.title}>小說推薦</h1></Divider>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div className="pre-button">
-          <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
+          <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer',color: colorTopNavBar}} />
         </div>
         <Swiper
           freeMode={true}
@@ -87,19 +89,19 @@ export default function ProductSlider({ products }) {
 
         </Swiper>
         <div className="next-button">
-          <RightOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
+          <RightOutlined style={{ fontSize: '2rem', cursor: 'pointer',color: colorTopNavBar }} />
         </div>
       </div>
-       <div className={styles.btn}>
+      <div className={styles.btn}>
         <Button type="primary" size="large" icon={<RightOutlined />} ><Link to={`/AllProducts/category/Novel`}>查看更多</Link></Button>
       </div>
 
-      
 
-      <h1 className={styles.title}>漫畫推薦</h1>
+
+      <Divider orientation="left"><h1 className={styles.title}>漫畫推薦</h1></Divider>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div className="pre-button">
-          <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
+          <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer',color: colorTopNavBar  }} />
         </div>
         <Swiper
           freeMode={true}
@@ -156,14 +158,14 @@ export default function ProductSlider({ products }) {
           <RightOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
         </div>
       </div>
-       <div className={styles.btn}>
+      <div className={styles.btn}>
         <Button type="primary" size="large" icon={<RightOutlined />} ><Link to={`/AllProducts/category/Manga`}>查看更多</Link></Button>
       </div>
 
 
 
 
-      <h1 className={styles.title}>公仔推薦</h1>
+      <Divider orientation="left"><h1 className={styles.title}>公仔推薦</h1></Divider>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div className="pre-button">
           <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
@@ -223,14 +225,14 @@ export default function ProductSlider({ products }) {
           <RightOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
         </div>
       </div>
-       <div className={styles.btn}>
+      <div className={styles.btn}>
         <Button type="primary" size="large" icon={<RightOutlined />} ><Link to={`/AllProducts/category/PVC`}>查看更多</Link></Button>
       </div>
 
 
 
 
-      <h1 className={styles.title}>周邊推薦</h1>
+      <Divider orientation="left"><h1 className={styles.title}>周邊推薦</h1></Divider>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div className="pre-button">
           <LeftOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
@@ -290,7 +292,7 @@ export default function ProductSlider({ products }) {
           <RightOutlined style={{ fontSize: '2rem', cursor: 'pointer' }} />
         </div>
       </div>
-       <div className={styles.btn}>
+      <div className={styles.btn}>
         <Button type="primary" size="large" icon={<RightOutlined />} ><Link to={`/AllProducts/category/Merch`}>查看更多</Link></Button>
       </div>
 

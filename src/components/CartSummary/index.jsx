@@ -72,9 +72,9 @@ export default function CartSummary({avatarStyle}) {
 
     return (
         <Popover placement="bottom" title={text} content={content} trigger="click">
-            <Badge count={count} color="#6366F2" style={{ color: 'white' }}>
+            <Badge count={count} color={colorTopNavBar}>
                 <Avatar shape="square" size={{
-                    xs: 24,
+                    xs: 32,
                     sm: 32,
                     md: 40,
                     lg: 40,

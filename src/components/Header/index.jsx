@@ -4,7 +4,7 @@ import { SearchOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, Avatar } from 'antd';
+import { Drawer, Avatar  } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
 import CartSummary from '../CartSummary';
@@ -58,7 +58,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
 
 
     const {
-        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar, colorLiHover },
+        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar },
     } = theme.useToken();
 
     const headerClassName = ((!isScrolled) && isHome) ? styles.bar : `${styles.bar2} `;
@@ -88,7 +88,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                                 商品總覽
                             </Link>
                         </li>
-                        
+
                         <li className={styles.li}>
                         <Link to="/Qa" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
                            常見Q&A
@@ -104,7 +104,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                     <CartSummary avatarStyle={avatarStyle} />
 
                     <Avatar shape="square" size={{
-                        xs: 24,
+                        xs: 32,
                         sm: 32,
                         md: 40,
                         lg: 40,
@@ -113,7 +113,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                     }} className={styles.search} icon={<SearchOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
 
                     <Avatar shape="square" size={{
-                        xs: 24,
+                        xs:32,
                         sm: 32,
                         md: 40,
                         lg: 40,
@@ -121,7 +121,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                     }} className={styles.user} icon={<UserOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
 
                     <Avatar shape="square" size={{
-                        xs: 24,
+                        xs: 32,
                         sm: 32,
                         md: 40,
                         lg: 40,

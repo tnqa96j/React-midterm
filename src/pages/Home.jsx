@@ -13,7 +13,7 @@ import SwiperCoverflow from "../components/SwiperCoverflow";
 
 export default function Home() {
     const {
-        token: { colorBgBase, colorTextBase,colorBgHeader },
+        token: { colorBgBase, colorTextBase,fontFamily },
     } = theme.useToken();
 
     return (
@@ -22,7 +22,8 @@ export default function Home() {
                 <style>{`
             body { 
               background-color: ${colorBgBase}; 
-              color: ${colorTextBase}
+              color: ${colorTextBase};
+              font-family:${fontFamily}
             }
         `}</style>
             </Helmet>
