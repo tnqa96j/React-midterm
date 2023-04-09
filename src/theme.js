@@ -14,8 +14,8 @@ const darkTheme = {
     colorBgHeader2:'#6c5574',
     colorAvatar:"#5a9790",
     colorTopNavBar:"#ffffff",
-    logoImgBar1:'../../../public/images/logobar1n.png',
-    logoImgBar2:'../../../public/images/logobar2n.png',
+    logoImgBar1:'/images/logobar1n.png',
+    logoImgBar2:'/images/logobar2n.png',
     textShadowTopNavBar:'#6c5574 0.1em 0.1em 0.2em',
     colorLiHover: 'lian'
   },
@@ -36,8 +36,8 @@ const lightTheme = {
     colorBgHeader2:'#dfaef0',
     colorAvatar:"#e9eb8a",
     colorTopNavBar:"#4d304b",
-    logoImgBar1:'../../../public/images/logobar1d.png',
-    logoImgBar2:'../../../public/images/logobar2d.png',
+    logoImgBar1:'/images/logobar1d.png',
+    logoImgBar2:'/images/logobar2d.png',
     textShadowTopNavBar:'#dfaef0 0.1em 0.1em 0.2em',
     colorLiHover: 'liad'
   },

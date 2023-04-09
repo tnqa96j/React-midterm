@@ -33,7 +33,7 @@ export default function Aboutus(){
                         <h1 className={styles.h1}>在這裡，你能找到</h1>
                         <Row gutter={[16, 16]}>
                             <Col span={6}>
-                                <img src= '../../../public/images/novel.png' 
+                                <img src= '/images/novel.png' 
                                 style={{marginBottom:'5vh'}}
                                 />
                                 <p className={styles.p}>小說</p>
@@ -45,13 +45,13 @@ export default function Aboutus(){
                                 <p className={styles.p}>漫畫</p>
                             </Col>
                             <Col span={6}>
-                                <img src= '../../../public/images/figure.png'
+                                <img src= '/images/figure.png'
                                 style={{marginBottom:'5vh'}}
                                 />
                                 <p className={styles.p}>公仔</p>
                             </Col>
                             <Col span={6}>
-                                <img src= '../../../public/images/other.png' 
+                                <img src= '/images/other.png' 
                                 style={{marginBottom:'5vh'}}
                                 />
                                 <p className={styles.p}>周邊商品</p>

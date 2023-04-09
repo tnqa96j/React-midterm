@@ -7,10 +7,10 @@ export default function Banner(){
     return(
         <Carousel autoplay className={styles.banner}>
         <div>
-          <img src='../../../public/images/banner01.png' className={styles.img}/>
+          <img src='/images/banner01.png' className={styles.img}/>
         </div>
         <div>
-        <img src='../../../public/images/banner02.png' className={styles.img}/>
+        <img src='/images/banner02.png' className={styles.img}/>
         </div>
 
       </Carousel>
