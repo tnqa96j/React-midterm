@@ -1,5 +1,5 @@
 .footer{
-    background-color: rgb(84, 65, 85);
+    background-color: rgb(204, 152, 207);
     display: grid;
     grid-template-areas:
     'logo nav member contact'
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(47, 30, 62);
+    background-color: rgb(104, 67, 136);
     font-size: 0.5rem;
 }
 .icon{

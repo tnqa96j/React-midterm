@@ -1,5 +1,4 @@
 import '../../App.css';
-import BreadcrumbNavbar from '../BreadcrumbNavbar';
 import SideMenu from "../SideMenu";
 import ProductList from "../ProductList";
 import { Row, Col } from "antd";

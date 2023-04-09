@@ -2,13 +2,14 @@ import '../../App.css';
 import styles from "./header.module.css";
 import { SearchOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, Avatar } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
 import CartSummary from '../CartSummary';
 import DayNightSwitcher from '../DayNightSwitcher';
+import { theme } from 'antd';
 
 
 function Header({ category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
@@ -38,47 +39,94 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
         setBreadcrumbSubCategory(breadcrumbSubCategory);
         console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
     };
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
 
+    const {
+        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar, colorLiHover },
+    } = theme.useToken();
+
+    const headerClassName = ((!isScrolled) && isHome) ? styles.bar : `${styles.bar2} `;
+    const headerStyle = ((!isScrolled) && isHome) ? { background: colorBgHeader } : { backgroundColor: colorBgHeader2 }
+    const avatarStyle = (isScrolled && isHome) ? { backgroundColor: colorAvatar } : { backgroundColor: 'transparent' }
+    const logoImg = ((!isScrolled) && isHome) ? logoImgBar1 : logoImgBar2
 
     return (
         <div className={styles.header}>
-            <div className={styles.bar}>
+            <div className={headerClassName} style={headerStyle}>
                 <div className={styles.logo}>
-                    <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
-                        logo
+                    <Link to="/" className={styles.a}>
+                        <img src={logoImg} className={styles.img} />
                     </Link>
                 </div>
 
                 <div className={styles.nav}>
                     <ul className={styles.ul}>
-                        <Link to="/About" style={{ textDecoration: 'none', color: '#fff' }}>
-                            <li className={styles.li}>網站介紹</li>
-                        </Link>
+                        <li className={styles.li}>
+                            <Link to="/About" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
+                                網站介紹
+                            </Link>
+                        </li>
 
-                        <Link to="/AllProducts" style={{ textDecoration: 'none', color: '#fff' }}>
-                            <li className={styles.li}>商品總覽</li>
+                        <li className={styles.li}>
+                            <Link to="/AllProducts" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
+                                商品總覽
+                            </Link>
+                        </li>
+                        
+                        <li className={styles.li}>
+                        <Link to="/Qa" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
+                           常見Q&A
                         </Link>
-
-                        <Link to="/Qa" style={{ textDecoration: 'none', color: '#fff' }}>
-                            <li className={styles.li}>常見Q&A</li>
-                        </Link>
+                        </li>
                     </ul>
                 </div>
 
-                <div className={styles.switcher}>
-                    {(!isMobile) &&<DayNightSwitcher />}
-                </div>
+
 
                 <div className={styles.icongroup}>
 
-                    <CartSummary />
+                    <CartSummary avatarStyle={avatarStyle} />
 
-                    <Avatar shape="square" className={styles.search} icon={<SearchOutlined className={styles.icon} />} />
+                    <Avatar shape="square" size={{
+                        xs: 24,
+                        sm: 32,
+                        md: 40,
+                        lg: 40,
+                        xl: 45,
 
-                    <Avatar shape="square" className={styles.user} icon={<UserOutlined className={styles.icon} />} />
+                    }} className={styles.search} icon={<SearchOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
 
-                    <Avatar shape="square" className={styles.menu} icon={<MenuOutlined className={styles.icon} onClick={toggleDrawer} />} />
+                    <Avatar shape="square" size={{
+                        xs: 24,
+                        sm: 32,
+                        md: 40,
+                        lg: 40,
+                        xl: 45,
+                    }} className={styles.user} icon={<UserOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
+
+                    <Avatar shape="square" size={{
+                        xs: 24,
+                        sm: 32,
+                        md: 40,
+                        lg: 40,
+                        xl: 45,
+                    }} className={styles.menu} icon={<MenuOutlined className={styles.icon} style={{ color: colorTopNavBar }} onClick={toggleDrawer} />} style={avatarStyle} />
                 </div>
 
                 <Drawer
@@ -88,7 +136,7 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                     width={'60%'}
                 >
                     <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick} />
-                    {(isMobile) &&<DayNightSwitcher />}
+                    {(isMobile) && <DayNightSwitcher />}
                 </Drawer>
 
 
@@ -98,6 +146,10 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
 
             </div>
             {isHome && <Banner />}
+            <div className={styles.switcher}>
+                {(!isMobile) && <DayNightSwitcher />}
+            </div>
+
 
         </div>
 

@@ -4,6 +4,9 @@ import { theme } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { selectLightMode, setColorMode } from "../../redux/colorSlice";
 import { selectSegmentedSunMode, setSegmentedMode } from "../../redux/segmentedSlice"
+import '../../App.css';
+
+
 
 export default function DayNightSwitcher() {
   const { token: { colorTextBase } } = theme.useToken();
@@ -40,6 +43,7 @@ export default function DayNightSwitcher() {
         activeindex={SunMode === true ? 0 : 1} // 根據 lightMode 狀態選擇 activeIndex
         onChange={toggleColor}
         defaultValue={ lightMode ? "Sun" : "Moon"}
+        style={{borderRadius:'100px'}}
       />
     </div>
   );

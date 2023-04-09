@@ -1,0 +1,19 @@
+.h1{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    margin-bottom: 4vh;
+    font-weight: bold;  
+}
+.img{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    width: 100%;
+}
+.p{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    font-size: 3vh;  
+}

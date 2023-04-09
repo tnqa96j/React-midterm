@@ -5,19 +5,14 @@ import { Carousel } from 'antd';
 export default function Banner(){
 
     return(
-        <Carousel autoplay>
+        <Carousel autoplay className={styles.banner}>
         <div>
-          <h3 className={styles.contentStyle}>1</h3>
+          <img src='../../../public/images/banner01.png' className={styles.img}/>
         </div>
         <div>
-          <h3 className={styles.contentStyle}>2</h3>
+        <img src='../../../public/images/banner02.png' className={styles.img}/>
         </div>
-        <div>
-          <h3 className={styles.contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 className={styles.contentStyle}>4</h3>
-        </div>
+
       </Carousel>
     );
 }

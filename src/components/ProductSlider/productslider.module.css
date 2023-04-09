@@ -1,0 +1,24 @@
+.productlist{
+
+}
+.title{
+    margin-top: 5%;
+}
+.btn{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.swiper {
+    width: 100%;
+    height: 55vh;
+    gap: 0;
+    font-size: 1rem;
+  }
+
+a{
+    text-decoration: none;
+}
+  
+ 

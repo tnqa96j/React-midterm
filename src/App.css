@@ -92,3 +92,13 @@ min-width: 360px;
   margin-bottom: 15%;
   gap: 5%;
 }
+
+
+  .ant-segmented-group,.ant-segmented-item,.ant-segmented-item-selected.ant-segmented-item-label,.ant-segmented-item::after,.ant-segmented-item-input{
+    border-radius: 100px!important;
+
+  }
+  .ant-segmented-thumb,.ant-segmented-thumb-motion-appear,.ant-segmented-thumb-motion-appear-active,.ant-segmented-thumb-motion{
+    border-radius: 100px!important;
+  }
+

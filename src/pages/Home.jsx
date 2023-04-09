@@ -1,9 +1,10 @@
 import Header from "../components/Header";
-import ProductList from "../components/ProductList";
+import ProductSlider from "../components/ProductSlider";
 import Footer from "../components/Footer";
 import products from "../json/products.json";
 import { Helmet } from "react-helmet-async";
 import { theme } from "antd";
+import SwiperCoverflow from "../components/SwiperCoverflow";
 
 /*重點:
     1.傳進ProductList的products參數是來自products.json的products物件
@@ -12,7 +13,7 @@ import { theme } from "antd";
 
 export default function Home() {
     const {
-        token: { colorBgBase, colorTextBase },
+        token: { colorBgBase, colorTextBase,colorBgHeader },
     } = theme.useToken();
 
     return (
@@ -25,9 +26,10 @@ export default function Home() {
             }
         `}</style>
             </Helmet>
-            <Header />
+            <Header/>
             <div className="container layoutContent">
-                <ProductList products={products} showAll={false} />
+                <SwiperCoverflow products={products}/>
+                <ProductSlider products={products}/>
             </div>
             <Footer className="layoutFooter" />
         </div>

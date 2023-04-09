@@ -5,10 +5,16 @@ import { selectCartItems } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartItems, removeCartItems } from "../../redux/cartSlice";
+import { theme } from 'antd';
 
 
+export default function CartSummary({avatarStyle}) {
 
-export default function CartSummary() {
+    const {
+        token: { colorAvatar,colorTopNavBar }
+    } = theme.useToken();
+
+    
 
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
@@ -67,7 +73,13 @@ export default function CartSummary() {
     return (
         <Popover placement="bottom" title={text} content={content} trigger="click">
             <Badge count={count} color="#6366F2" style={{ color: 'white' }}>
-                <Avatar shape="square" className={styles.shop} icon={<ShoppingCartOutlined className={styles.icon} />} />
+                <Avatar shape="square" size={{
+                    xs: 24,
+                    sm: 32,
+                    md: 40,
+                    lg: 40,
+                    xl:45,
+                }} className={styles.shop} style={avatarStyle} icon={<ShoppingCartOutlined className={styles.icon} style={{color:colorTopNavBar}}/>}  />
             </Badge>
 
         </Popover>

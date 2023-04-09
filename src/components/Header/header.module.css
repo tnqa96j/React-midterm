@@ -1,18 +1,28 @@
 .header{
     position: relative;
 }
-.bar{
-    background:linear-gradient(to bottom, rgb(96, 84, 114) , transparent);
+
+.bar {
     display: grid;
-    grid-template-areas:'logo nav space icongroup';
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-areas: 'logo nav icongroup';
+    grid-template-columns: 1fr 2fr 2fr;
     height: 12vh;
     min-height: 80px;
     width: 100%;
-    position: absolute;
+    transition: 0.3s all linear;
+}
+.bar2{
+    background-color: #DFAEF0    ;
+    display: grid;
+    grid-template-areas: 'logo nav icongroup';
+    grid-template-columns: 1fr 2fr 2fr;
+    height: 12vh;
+    min-height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 200;
+    transition: 0.3s all linear;
     top:0;
-    left: 0;
-    z-index: 1;
 }
 
 /*
@@ -23,90 +33,128 @@
 
     //記得設字體大小
 */
-.logo{
-    grid-area:logo;
-    margin:auto auto;
-}
-.nav{
-    grid-area:nav;
-    display: flex;
-    align-items: flex-end
-}
-.switcher{
-    grid-area:space;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-.icongroup{
-    grid-area:icongroup;
+.logo {
+    grid-area: logo;
     display: flex;
     align-items: flex-end;
-    gap:7%;
-    margin-bottom: 3%;
+}
+
+.a {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+
+.img {
+    width: 70%;
+}
+
+.nav {
+    grid-area: nav;
+    display: flex;
+    align-items: flex-end;
     justify-content: center;
 }
-.ul{
+
+
+.icongroup {
+    grid-area: icongroup;
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2%;
+    justify-content: center;
+}
+
+.ul {
     list-style: none;
     display: flex;
     padding: 0;
     margin-bottom: 2%;
 }
-.li{
+
+
+.li {
     margin: auto 20px;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
 }
-.icon{
+
+
+.icon {
     font-size: 1.75rem;
     color: white;
 }
-.icon:hover{
+
+.icon:hover {
     color: rgb(244, 211, 238);
     cursor: pointer;
 }
 
-.menu{
-    grid-area:menu;
+.menu {
+    grid-area: menu;
     display: none;
+}
+.switcher{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10vw;
+    margin-top: 2rem;
 }
 
 
+@media (max-width:1000px) {
+    .bar,.bar2 {
+        grid-template-columns: 1.2fr 2.2fr  2fr;
+    }
+}
 
 @media (max-width:767px) {
-    .bar{
-        grid-template-areas:'logo space icongroup';
-        grid-template-columns: 1fr 1fr 1fr;
+    .bar,.bar2  {
+        grid-template-areas: 'logo space icongroup';
+        grid-template-columns: 1.5fr 0.8fr 1.5fr;
     }
-    .nav{
+
+    .nav {
         display: none;
     }
-    .icongroup{
+
+    .icongroup {
         align-items: center;
     }
-    .menu{
+
+    .menu {
         display: block;
+    }
+    .logo{
+        align-items: center;
     }
 }
 
 @media (max-width:576px) {
-    .user{
+    .user {
         display: none;
     }
 }
 
 @media (max-width:430px) {
-    .bar{
-        grid-template-areas:'logo  icongroup';
-        grid-template-columns: 1fr  0.8fr;
+    .bar,.bar2  {
+        grid-template-areas: 'logo  icongroup';
+        grid-template-columns: 1fr 0.8fr;
     }
-    .nav{
+
+    .nav {
         display: none;
     }
-    .icongroup{
+
+    .icongroup {
         align-items: center;
     }
 }
+
 /*還要做的:
     1.螢幕寬度小於576px時其他三個icon消失
     2.banner RWD調整高度和寬度
