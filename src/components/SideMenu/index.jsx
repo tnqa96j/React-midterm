@@ -43,9 +43,7 @@ export default function SideMenu({onClose,CategoryClick}) {
         },
     ]
 
-    const {
-        token: { colorProductItem ,colorBgHeader2},
-    } = theme.useToken();
+
 
 
     return (
