@@ -2,6 +2,7 @@ import style from "./breadcrumbnavbar.module.css"
 import '../../App.css';
 import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
+import { theme } from "antd";
 
 export default function BreadcrumbNavbar({
     category,
@@ -13,6 +14,9 @@ export default function BreadcrumbNavbar({
     handleBreadCrumbClick,
   }) {
     const breadcrumbItems = [];
+    const {
+      token: { colorProductItem },
+  } = theme.useToken();
   
     breadcrumbItems.push(
       <Breadcrumb.Item key="AllProducts">
@@ -61,5 +65,5 @@ export default function BreadcrumbNavbar({
         );
     }
   
-    return <Breadcrumb separator={">"} className={style.bread}>{breadcrumbItems}</Breadcrumb>;
+    return <Breadcrumb separator={">"} className={style.bread} style={{fontSize:'1.2rem',marginBottom:'1em'}}>{breadcrumbItems}</Breadcrumb>;
   }

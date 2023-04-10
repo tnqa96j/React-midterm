@@ -23,7 +23,7 @@ export default function About(){
             </Helmet>
             <Header />
             <div className="container">
-                    <div style={{ marginTop: '20vh' }}></div>
+                    <div style={{ marginTop: '10vh' }}></div>
                     <Aboutus />
                     <div style={{ marginBottom: '20vh' }}></div>
                 </div>

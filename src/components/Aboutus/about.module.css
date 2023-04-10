@@ -1,21 +1,26 @@
 .h1{
-    font-family: FakePearl-Regular,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-    margin-bottom: 4vh;
-    font-weight: bold;  
+    text-align: center;
+    margin-bottom: 8vh;
 }
 .img{
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-    width: 100%;
+    width: 60%;
+    margin-bottom: 5vh;
 }
 .p{
-    font-family: FakePearl-Regular,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 8vh;
+}
+.p2{
+    font-size: 1.2rem;
+    margin-bottom: 8vh;
     display: flex;
-    justify-content: center;    
-    align-items: center;
-    font-size: 3vh;  
+    justify-content: center;
+    word-break: break-all;
+
+}
+.switcher{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 1em;
 }

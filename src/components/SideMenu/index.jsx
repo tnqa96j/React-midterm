@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import { theme } from 'antd';
 
 export default function SideMenu({onClose,CategoryClick}) {
     const { SubMenu } = Menu;
@@ -41,16 +42,19 @@ export default function SideMenu({onClose,CategoryClick}) {
         },
     ]
 
+    const {
+        token: { colorProductItem ,colorBgHeader2},
+    } = theme.useToken();
 
 
     return (
-        <Menu mode="inline" breakpoint="lg" selectable={false} style={{width:'100%',borderInlineEnd:'0px'}}> 
+        <Menu mode="inline" breakpoint="lg" selectable={false} style={{width:'100%',borderInlineEnd:'0px',borderRadius:'0px'}}> 
 
             {items.map((item) =>
                 item.items ? (
                     <SubMenu key={item.key}  title={item.title} >
                         {item.items.map((child) => (
-                            <Menu.Item key={child.key} onClick={() => {onClose(); CategoryClick(item.key, child.key,item.title,child.title);}}>
+                            <Menu.Item style={{borderRadius:'0px'}} key={child.key} onClick={() => {onClose(); CategoryClick(item.key, child.key,item.title,child.title);}}>
                                 <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>
                             </Menu.Item>
                         ))}

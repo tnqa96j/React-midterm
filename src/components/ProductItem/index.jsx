@@ -11,19 +11,19 @@ export default function ProductItem({ product }) {
     3.商品標題
     4.價錢
   */
-    const {
-      token: { colorProductItem ,colorTextBase ,colorBgBase}
+  const {
+    token: { colorProductItem, colorTextBase, colorBgBase }
   } = theme.useToken();
   return (
-    <div className={styles.item} style={{backgroundColor:colorProductItem,borderColor:colorProductItem}}>
-      <div className={styles.sqare} >
-        <Link to={`/product/id/${product.id}`}>
-          <img src={product.image} className={styles.img} />
-        </Link>
-      </div>
+    <div className={styles.item} style={{ backgroundColor: colorProductItem, borderColor: colorProductItem }}>
+
+      <Link to={`/product/id/${product.id}`}>
+        <img src={product.image} className={styles.img} />
+      </Link>
+
 
       <h2>
-        <Link to={`/product/id/${product.id}` } className={styles.name} style={{color:colorTextBase}}>
+        <Link to={`/product/id/${product.id}`} className={styles.name} style={{ color: colorTextBase }}>
           {product.name}
         </Link>
       </h2>

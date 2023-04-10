@@ -5,6 +5,7 @@ import { Row, Col, InputNumber, Image, Tabs } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
 import AddToBasketBtn from "../AddToBasketBtn";
 import { useState } from "react";
+import { theme } from "antd";
 
 export default function ProductDetail({ product, category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
 
@@ -42,6 +43,10 @@ export default function ProductDetail({ product, category, setCategory, subCateg
     };
 
     const {countInStock} =product;
+
+    const {
+        token: { colorTextBase},
+    } = theme.useToken();
 
     /*這是一個包含「單一」商品的所有資訊的元件
         1.麵包屑導覽(現在先用h1代替)category,subCategory,breadcrumbCategory,breadcrumbSubCategory
@@ -82,6 +87,7 @@ export default function ProductDetail({ product, category, setCategory, subCateg
                     <PaymentAndShipping />
                 </Col>
             </Row>
+            <div style={{marginBottom:'10vh'}}></div>
             <Row gutter={[32, 32]}>
                 <Col
                     xs={{ span: 24 }}>

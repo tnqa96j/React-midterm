@@ -24,8 +24,9 @@ export default function Qa(){
             </Helmet>
             <Header />
                 <div className="container">
-                    <h1 style={{marginTop:"15%",color:'black'}}> 常見問題</h1>
+                    <div style={{marginTop:"10vh"}}></div>
                     <QA />
+                    <div style={{marginTop:"20vh"}}></div>
                 </div>
             <Footer />
         </div>

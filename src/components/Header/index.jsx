@@ -58,12 +58,12 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
 
 
     const {
-        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar },
+        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar,colorBgContainer },
     } = theme.useToken();
 
     const headerClassName = ((!isScrolled) && isHome) ? styles.bar : `${styles.bar2} `;
     const headerStyle = ((!isScrolled) && isHome) ? { background: colorBgHeader } : { backgroundColor: colorBgHeader2 }
-    const avatarStyle = (isScrolled && isHome) ? { backgroundColor: colorAvatar } : { backgroundColor: 'transparent' }
+    const avatarStyle = ((!isScrolled) && isHome) ?  { backgroundColor: 'transparent' } :{ backgroundColor: colorAvatar }
     const logoImg = ((!isScrolled) && isHome) ? logoImgBar1 : logoImgBar2
 
     return (
@@ -134,9 +134,13 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
                     onClose={onClose}
                     placement="right"
                     width={'60%'}
+                    style={{backgroundColor:colorBgContainer}}
                 >
                     <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick} />
-                    {(isMobile) && <DayNightSwitcher />}
+                    {(isMobile) && 
+                    <div style={{display:'flex',flexDirection:'row-reverse',marginTop:'1em'}}>
+                    <DayNightSwitcher />
+                    </div>}
                 </Drawer>
 
 

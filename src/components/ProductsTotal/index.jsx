@@ -2,8 +2,10 @@ import '../../App.css';
 import SideMenu from "../SideMenu";
 import ProductList from "../ProductList";
 import { Row, Col } from "antd";
-import { useState } from 'react';
-import { useMediaQuery } from '@material-ui/core';
+import DayNightSwitcher from '../DayNightSwitcher';
+import styles from "./ProductsTotal.module.css";
+
+
 
 export default function ProductsTotal({ products ,category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
     /*這是一個包含Breadcrumb、SideMenu和ProductList的元件 */

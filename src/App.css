@@ -94,11 +94,52 @@ min-width: 360px;
 }
 
 
-  .ant-segmented-group,.ant-segmented-item,.ant-segmented-item-selected.ant-segmented-item-label,.ant-segmented-item::after,.ant-segmented-item-input{
-    border-radius: 100px!important;
 
-  }
-  .ant-segmented-thumb,.ant-segmented-thumb-motion-appear,.ant-segmented-thumb-motion-appear-active,.ant-segmented-thumb-motion{
-    border-radius: 100px!important;
-  }
 
+
+
+.ant-breadcrumb a{
+  height: auto!important;
+}
+
+.ant-menu-inline ,.ant-menu-item{
+      margin-inline: 0px!important; 
+    margin-block: 0px!important; 
+     width: 100%!important;
+}
+.ant-menu-submenu-title{
+  border-radius: 0px!important;
+}
+.ant-menu-submenu-title:hover{
+background-color: transparent!important;
+}
+
+.ant-collapse-content-box{
+  padding: 0.1px 0.1px!important;
+  border-radius: 0px!important;
+}
+.ant-collapse-item:last-child{
+  border-radius: 0px!important;
+}
+.ant-collapse-item:last-child >.ant-collapse-content{
+  border-radius: 0px!important;
+}
+
+.ant-segmented-group,.ant-segmented-item,.ant-segmented-item-selected.ant-segmented-item-label,.ant-segmented-item::after,.ant-segmented-item-input{
+  border-radius: 100px!important;
+
+}
+.ant-segmented-thumb,.ant-segmented-thumb-motion-appear,.ant-segmented-thumb-motion-appear-active,.ant-segmented-thumb-motion{
+  border-radius: 100px!important;
+}
+
+@media (max-width:576px) {
+  .ant-tabs-nav-list{
+    width: 100%!important;
+  }
+  .ant-tabs-tab,.ant-tabs-tab-active{
+    width: 50%!important;
+    justify-content: center!important;
+  }
+  
+}

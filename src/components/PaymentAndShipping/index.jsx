@@ -1,10 +1,14 @@
 import styles from "./paymentandshipping.module.css"
 import '../../App.css';
+import { theme } from "antd";
 
 export default function PaymentAndShipping(){
     /*這是付款資訊+配送資訊的元件 */
+    const {
+        token: { colorAvatar},
+    } = theme.useToken();
     return(
-        <div className={styles.background}>
+        <div className={styles.background} style={{backgroundColor:colorAvatar}}>
             <h2 className={styles.title}>付款方式</h2>
             <p className={styles.p}>宅配代收、7-11取貨付款、全家取貨付款、信用卡分期付款、信用卡、ATM 虛擬帳號</p>
             <h2 className={styles.title}>運送方式</h2>

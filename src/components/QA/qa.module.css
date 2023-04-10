@@ -1,0 +1,11 @@
+.switcher{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.p{
+    margin: 5% 5%;
+    font-size: 1rem;
+}
+.header{
+    font-size: 1.2rem;
+}
