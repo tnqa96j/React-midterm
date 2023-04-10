@@ -31,13 +31,14 @@ export default function SideMenu({onClose,CategoryClick}) {
             key: 'PVC',
             items : [
                 { title: 'Vtuber', key: 'Vtuber' },
+                { title: '動畫', key: 'Animate' },
             ],
         },
         {
             title: '各式周邊',
             key: 'Merch',
             items : [
-                { title: '唱片', key: 'Cd' },
+                { title: '生活小物', key: 'item' },
             ],
         },
     ]

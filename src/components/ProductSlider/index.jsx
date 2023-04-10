@@ -280,7 +280,7 @@ export default function ProductSlider({ products }) {
 
         >
           {products
-            .filter((product) => product.categoryTitle === "周邊")
+            .filter((product) => product.categoryTitle === "各式周邊")
             .map((product) => (
               <SwiperSlide key={product.id} >
                 <ProductItem product={product} />

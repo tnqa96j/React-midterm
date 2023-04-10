@@ -6,7 +6,7 @@ const darkTheme = {
   algorithm: theme.darkAlgorithm,
   token: {
     fontFamily: "FakePearl-Regular,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif ",
-    colorPrimary: "#1677ff",
+    colorPrimary: "#fcfafc",
     colorBgBase	: "#435759",
     colorBgContainer: '#313837',
     colorTextBase: "#fcfafc",

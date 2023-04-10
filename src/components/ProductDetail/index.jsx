@@ -42,10 +42,10 @@ export default function ProductDetail({ product, category, setCategory, subCateg
 
     };
 
-    const {countInStock} =product;
+    const { countInStock } = product;
 
     const {
-        token: { colorTextBase},
+        token: { colorTextBase },
     } = theme.useToken();
 
     /*這是一個包含「單一」商品的所有資訊的元件
@@ -87,7 +87,7 @@ export default function ProductDetail({ product, category, setCategory, subCateg
                     <PaymentAndShipping />
                 </Col>
             </Row>
-            <div style={{marginBottom:'10vh'}}></div>
+            <div style={{ marginBottom: '10vh' }}></div>
             <Row gutter={[32, 32]}>
                 <Col
                     xs={{ span: 24 }}>
@@ -100,9 +100,12 @@ export default function ProductDetail({ product, category, setCategory, subCateg
                                 label: "商品資訊",
                                 key: "1",
                                 children: (
-                                    <>
+
+                                    <div style={{ whiteSpace: 'pre-line' }}>
+                                        {`作者：${product.writer}\n\n`}
                                         {product.description}
-                                    </>
+                                    </div>
+
                                 ),
                             },
                             {
@@ -110,8 +113,16 @@ export default function ProductDetail({ product, category, setCategory, subCateg
                                 key: "2",
                                 children: (
                                     <>
-                                        <h1>This is Tab 2</h1>
-                                        <p>Enter your content for Tab 2 here</p>
+                                        <p>若您在十天鑑賞期(含例假日)內欲退貨，請參照常見問題。<br /><br />
+                                            ▶ 依消保法之規定提供商品十天鑑賞期(含例假日)的服務，原則若已將商品拆封即無法申請退貨！申請退貨商品須保持完整無誤、且無人為損傷的情形下才能申請。<br /><br />
+                                            ▶ 超商取貨有材積及重量限制，若您訂購的商品超過尺寸或重量，我們會通知您更改取貨方式。<br /><br />
+                                            ▶ 國際貨運有壅塞及延遲之狀況發生，商品到貨日可能導致延期，請耐心等候，造成不便敬請見諒。<br /><br />
+                                            ▶ 商品的發售日期、外型、價格、贈品內容等，有因諸多不可抗力之原因導致變更、延期、中止的可能性。建議您下單前多加考慮。<br /><br />
+
+                                            ▶ 不適用十天鑑賞期商品：<br />
+                                            以數位或電磁紀錄形式儲存之商品、易於變質或損壞之商品、以及性質上無法或不適合退換之商品：如CD、VCD、DVD、電腦軟體，若產品瑕疵無法讀取僅接受原片換新。<br />
+                                            衣飾鞋類-如泳裝、T恤，如於送達後水洗或污損者。<br />
+                                        </p>
                                     </>
                                 ),
                             },
@@ -120,7 +131,7 @@ export default function ProductDetail({ product, category, setCategory, subCateg
 
                 </Col>
             </Row>
-        </div>
+        </div >
 
 
 
