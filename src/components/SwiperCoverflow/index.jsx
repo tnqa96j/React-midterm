@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 
 
 
-export default function SwiperCoverflow({ products }) {
+export default function SwiperCoverflow({products}) {
+
 
     const [latestProducts, setLatestProducts] = useState([]);
 
@@ -26,6 +27,7 @@ export default function SwiperCoverflow({ products }) {
         const latest = sortedProducts.slice(0, 8);
         setLatestProducts(latest);
     }, [products]);
+
     return (
         <>
             <div style={{ marginTop: '50px', marginBottom: '20px' }}>

@@ -12,7 +12,7 @@ import DayNightSwitcher from '../DayNightSwitcher';
 import { theme } from 'antd';
 
 
-function Header({ category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
+function Header() {
     /*header區塊 切成(1)logo區、
                     
                     (2)文字導覽區(nav)、--->用Link連至其他固定頁面(在App.jsx裡設定路徑)
@@ -32,12 +32,8 @@ function Header({ category, setCategory, subCategory, setSubCategory, breadcrumb
 
     const isMobile = useMediaQuery(`(max-width:766.98px)`);
 
-    const CategoryClick = (category, subCategory, breadcrumbCategory, breadcrumbSubCategory) => {
-        setCategory(category);
-        setSubCategory(subCategory);
-        setBreadcrumbCategory(breadcrumbCategory);
-        setBreadcrumbSubCategory(breadcrumbSubCategory);
-        console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
+    const CategoryClick = () => {
+
     };
     const [isScrolled, setIsScrolled] = useState(false);
 

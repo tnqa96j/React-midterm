@@ -1,9 +1,8 @@
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import '../../App.css';
-import { theme } from 'antd';
 
-export default function SideMenu({onClose,CategoryClick}) {
+export default function SideMenu() {
     const { SubMenu } = Menu;
     const items = [
         {
@@ -45,24 +44,19 @@ export default function SideMenu({onClose,CategoryClick}) {
 
 
 
-
     return (
         <Menu mode="inline" breakpoint="lg" selectable={false} style={{width:'100%',borderInlineEnd:'0px',borderRadius:'0px'}}> 
 
             {items.map((item) =>
-                item.items ? (
+                
                     <SubMenu key={item.key}  title={item.title} >
                         {item.items.map((child) => (
-                            <Menu.Item style={{borderRadius:'0px'}} key={child.key} onClick={() => {onClose(); CategoryClick(item.key, child.key,item.title,child.title);}}>
-                                <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>
-                            </Menu.Item>
+                            <Menu.Item style={{borderRadius:'0px'}} key={child.key}>
+                                 <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>
+                            </Menu.Item> 
                         ))}
                     </SubMenu>
-                ) : (
-                    <Menu.Item key={item.key} onClick={() =>{ onClose();CategoryClick(item.key, child.key,item.title,child.title);}}>
-                        <Link to={`/AllProducts/category/${item.key}`}>{item.title}</Link>
-                    </Menu.Item>
-                )
+      
             )}
         </Menu>
     );

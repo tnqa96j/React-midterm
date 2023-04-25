@@ -4,7 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import cartReducer from './cartSlice';
 import colorReducer from './colorSlice';
-import segmentedReducer from './segmentedSlice'
+
 
 
 // Data Persist Config
@@ -15,7 +15,6 @@ const persistConfig = {
 
 const persistedCartReducer = persistReducer(persistConfig, cartReducer);
 const persistedColorReducer = persistReducer(persistConfig, colorReducer);
-const persistedSegmentedReducer = persistReducer(persistConfig,segmentedReducer)
 
 
 
@@ -24,7 +23,6 @@ export const store = configureStore({
   reducer: {
     cart: persistedCartReducer,
     color: persistedColorReducer,
-    segmented :persistedSegmentedReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: [thunk]

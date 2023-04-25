@@ -2,13 +2,16 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import ProductDetail from "../components/ProductDetail";
 import Footer from "../components/Footer";
-import products from "../json/products.json";
+import { useProducts } from "../react-query";
 import { Helmet } from "react-helmet-async";
 import { theme } from "antd";
 import DayNightSwitcher from "../components/DayNightSwitcher";
 
-export default function Product({ category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
+export default function Product() {
 
+    const {data , isLoading} = useProducts();
+    const products = data || [{id:1},{id:2},{id:3},{id:4},{id:5},{id:6}]
+    
     const { productId } = useParams();
     const product = products.find(
         (x) => x.id === productId
@@ -35,7 +38,7 @@ export default function Product({ category, setCategory, subCategory, setSubCate
                 <div style={{ display: "flex", flexDirection: 'row-reverse' }}>
                     <DayNightSwitcher />
                 </div>
-                <ProductDetail product={product} category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
+                <ProductDetail product={product}  />
                 <div style={{ marginTop: '10vh' }}></div>
             </div>
 

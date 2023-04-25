@@ -4,17 +4,17 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 import { selectCartItems } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartItems, removeCartItems } from "../../redux/cartSlice";
+import { removeCartItems } from "../../redux/cartSlice";
 import { theme } from 'antd';
 
 
-export default function CartSummary({avatarStyle}) {
+export default function CartSummary({ avatarStyle }) {
 
     const {
-        token: { colorAvatar,colorTopNavBar }
+        token: { colorAvatar, colorTopNavBar }
     } = theme.useToken();
 
-    
+
 
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
@@ -78,8 +78,8 @@ export default function CartSummary({avatarStyle}) {
                     sm: 32,
                     md: 40,
                     lg: 40,
-                    xl:45,
-                }} className={styles.shop} style={avatarStyle} icon={<ShoppingCartOutlined className={styles.icon} style={{color:colorTopNavBar}}/>}  />
+                    xl: 45,
+                }} className={styles.shop} style={avatarStyle} icon={<ShoppingCartOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} />
             </Badge>
 
         </Popover>

@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductsTotal from "../components/ProductsTotal";
-import products from "../json/products.json";
+import { useProducts } from "../react-query";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { theme } from "antd";
@@ -9,12 +9,19 @@ import BreadcrumbNavbar from "../components/BreadcrumbNavbar";
 import DayNightSwitcher from "../components/DayNightSwitcher";
 
 
-/*商品導覽是否用麵包屑導覽代替?ㄋ */
-/*BreadcrumbNavbar需要4個參數 */
-export default function AllProducts({ category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
+export default function AllProducts() {
+
+  const {
+    token: { colorBgBase, colorTextBase },
+  } = theme.useToken();
+
+  const { data, isLoading } = useProducts();
+  const products = data || [];
+
+
   const { categoryName, subCategoryName } = useParams();
 
-
+ 
   const _products = !categoryName
     ? products
     : !subCategoryName
@@ -35,31 +42,6 @@ export default function AllProducts({ category, setCategory, subCategory, setSub
     ? "商品總覽"
     : `商品總覽 — ${_products[0]?.subCategory}`;
 
-  const {
-    token: { colorBgBase, colorTextBase },
-  } = theme.useToken();
-
-
-
-  const handleBreadCrumbClick = (path) => {
-    if (path === '/AllProducts') {
-      setBreadcrumbCategory(null);
-      setBreadcrumbSubCategory(null);
-
-      console.log("AllProducts");
-    } else if (path.startsWith('/AllProducts/category/')) {
-      const parts = path.split('/');
-      if (parts.length === 4) {
-        setBreadcrumbCategory(parts[3]);
-        setBreadcrumbSubCategory(null);
-
-      } else if (parts.length === 5) {
-        setBreadcrumbCategory(parts[3]);
-        setBreadcrumbSubCategory(parts[4]);
-
-      }
-    }
-  };
 
   return (
     <div>
@@ -72,7 +54,7 @@ export default function AllProducts({ category, setCategory, subCategory, setSub
         `}</style>
       </Helmet>
 
-      <Header category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
+      <Header />
 
       <div className="container layoutContent">
         <div style={{ marginTop: '10vh' }}></div>
@@ -80,9 +62,9 @@ export default function AllProducts({ category, setCategory, subCategory, setSub
           <DayNightSwitcher />
         </div>
         <h1>商品列表</h1>
-        <BreadcrumbNavbar category={category} subCategory={subCategory} breadcrumbCategory={breadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} handleBreadCrumbClick={handleBreadCrumbClick} />
+        <BreadcrumbNavbar  />
 
-        <ProductsTotal products={_products} category={category} setCategory={setCategory} subCategory={subCategory} setSubCategory={setSubCategory} breadcrumbCategory={breadcrumbCategory} setBreadcrumbCategory={setBreadcrumbCategory} breadcrumbSubCategory={breadcrumbSubCategory} setBreadcrumbSubCategory={setBreadcrumbSubCategory} />
+        <ProductsTotal products={_products} />
         <div style={{ marginTop: '10vh' }}></div>
       </div>
       <Footer />

@@ -5,34 +5,9 @@ import { Row, Col, InputNumber, Image, Tabs } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
 import AddToBasketBtn from "../AddToBasketBtn";
 import { useState } from "react";
-import { theme } from "antd";
 
-export default function ProductDetail({ product, category, setCategory, subCategory, setSubCategory, breadcrumbCategory, setBreadcrumbCategory, breadcrumbSubCategory, setBreadcrumbSubCategory }) {
+export default function ProductDetail({ product }) {
 
-    const handleBreadCrumbClick = (path) => {
-        setCategory(product.category);
-        setSubCategory(product.subCategory);
-        setBreadcrumbCategory(product.categoryTitle);
-        setBreadcrumbSubCategory(product.subCategoryTitle);
-
-        if (path === '/AllProducts') {
-            setBreadcrumbCategory(null);
-            setBreadcrumbSubCategory(null);
-
-            console.log("AllProducts");
-        } else if (path.startsWith('/AllProducts/category/')) {
-            const parts = path.split('/');
-            if (parts.length === 4) {
-                setBreadcrumbCategory(parts[3]);
-                setBreadcrumbSubCategory(null);
-
-            } else if (parts.length === 5) {
-                setBreadcrumbCategory(parts[3]);
-                setBreadcrumbSubCategory(parts[4]);
-
-            }
-        }
-    };
 
     const [qty, setQty] = useState(product.countInStock > 0 ? 1 : 0);
 
@@ -43,10 +18,6 @@ export default function ProductDetail({ product, category, setCategory, subCateg
     };
 
     const { countInStock } = product;
-
-    const {
-        token: { colorTextBase },
-    } = theme.useToken();
 
     /*這是一個包含「單一」商品的所有資訊的元件
         1.麵包屑導覽(現在先用h1代替)category,subCategory,breadcrumbCategory,breadcrumbSubCategory
@@ -62,7 +33,7 @@ export default function ProductDetail({ product, category, setCategory, subCateg
      */
     return (
         <div>
-            <BreadcrumbNavbar category={product.category} subCategory={product.subCategory} breadcrumbCategory={`${product.categoryTitle}`} breadcrumbSubCategory={`${product.subCategoryTitle}`} productName={`${product.name}`} productId={product.id} handleBreadCrumbClick={handleBreadCrumbClick} ></BreadcrumbNavbar>
+            <BreadcrumbNavbar product={product}></BreadcrumbNavbar>
             <Row gutter={[32, 32]}>
                 <Col
                     xs={{ span: 24 }}

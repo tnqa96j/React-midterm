@@ -2,26 +2,8 @@ import '../../App.css';
 import SideMenu from "../SideMenu";
 import ProductList from "../ProductList";
 import { Row, Col } from "antd";
-import DayNightSwitcher from '../DayNightSwitcher';
-import styles from "./ProductsTotal.module.css";
-
-
-
-export default function ProductsTotal({ products ,category,setCategory,subCategory,setSubCategory,breadcrumbCategory,setBreadcrumbCategory,breadcrumbSubCategory,setBreadcrumbSubCategory}) {
+export default function ProductsTotal({products}) {
     /*這是一個包含Breadcrumb、SideMenu和ProductList的元件 */
-
-
-
-    const onClose =() =>{};
-
-    const CategoryClick = (category,subCategory,breadcrumbCategory,breadcrumbSubCategory) => {
-        setCategory(category);
-        setSubCategory(subCategory);
-        setBreadcrumbCategory(breadcrumbCategory);
-        setBreadcrumbSubCategory(breadcrumbSubCategory);
-        console.log(category + subCategory + breadcrumbCategory + breadcrumbSubCategory)
-      };
-
     return (
         <div>
             <Row gutter={[32, 32]}>
@@ -30,7 +12,7 @@ export default function ProductsTotal({ products ,category,setCategory,subCatego
                     sm={{ span: 0 }}
                     md={{ span: 6 }}
                 >
-                    <SideMenu onClose={onClose} CategoryClick={CategoryClick}/>
+                    <SideMenu />
                 </Col>
                 <Col
                     xs={{ span: 24 }}
