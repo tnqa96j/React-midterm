@@ -35,19 +35,13 @@ export const feedProducts = async () => {
     });
 };
 
-export const getProductById = async ({ queryKey }) => {
-    const [id] = queryKey;
-    const docRef = await doc(db, "products", id);
-    const docSnap = await getDoc(docRef);
-    return docSnap.data();
-  };
   
-  export const getProducts = async ({ queryKey }) => {
+  export const getProducts = async () => {
     const querySnapshot = await getDocs(productsCollection);
     // Convert query to a json array.
     let result = [];
-    querySnapshot.forEach(async (image) => {
-       await result.push(image.data());
+    querySnapshot.forEach(async (product) => {
+       await result.push(product.data());
     });
     return result;
   };
