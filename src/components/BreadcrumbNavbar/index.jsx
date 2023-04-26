@@ -7,23 +7,23 @@ export default function BreadcrumbNavbar({ product }) {
   const { categoryName, subCategoryName, productId } = useParams();
 
   const ch = (categoryName) => {
-    if (categoryName == 'Novel') return ("小說");
-    else if (categoryName == 'Manga') return ("漫畫");
-    else if (categoryName == 'PVC') return ("公仔");
+    if (categoryName.toUpperCase() == 'NOVEL') return ("小說");
+    else if (categoryName.toUpperCase() == 'MANGA') return ("漫畫");
+    else if (categoryName.toUpperCase() == 'PVC') return ("公仔");
     else return ("各式周邊");
   }
 
   const ch2 = (subCategoryName) => {
-    if (subCategoryName == 'Horror') return ("驚悚恐怖");
-    else if (subCategoryName == 'Suspense') return ("懸疑推理");
-    else if (subCategoryName == 'SF') return ("奇幻科幻");
-    else if (subCategoryName == 'Romance') return ("愛情");
-    else if (subCategoryName == 'NL') return ("男性向");
-    else if (subCategoryName == 'TL') return ("女性向");
-    else if (subCategoryName == 'BL') return ("耽美");
-    else if (subCategoryName == 'GL') return ("百合");
-    else if (subCategoryName == 'Vtuber') return ("Vtuber");
-    else if (subCategoryName == 'animate') return ("動畫");
+    if (subCategoryName.toUpperCase() == 'HORROR') return ("驚悚恐怖");
+    else if (subCategoryName.toUpperCase() == 'SUSPENSE') return ("懸疑推理");
+    else if (subCategoryName.toUpperCase() == 'SF') return ("奇幻科幻");
+    else if (subCategoryName.toUpperCase() == 'ROMANCE') return ("愛情");
+    else if (subCategoryName.toUpperCase() == 'NL') return ("男性向");
+    else if (subCategoryName.toUpperCase() == 'TL') return ("女性向");
+    else if (subCategoryName.toUpperCase() == 'BL') return ("耽美");
+    else if (subCategoryName.toUpperCase() == 'GL') return ("百合");
+    else if (subCategoryName.toUpperCase() == 'VTUBER') return ("Vtuber");
+    else if (subCategoryName.toUpperCase() == 'ANIMATE') return ("動畫");
     else return ("生活小物");
 
   }
