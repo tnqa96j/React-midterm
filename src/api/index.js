@@ -1,5 +1,5 @@
 import { getApps, getApp, initializeApp } from "firebase/app";
-import {   getFirestore,collection, doc,setDoc,getDoc,getDocs,deleteDoc,query,where, } from "firebase/firestore";
+import { getFirestore, collection, doc, setDoc, getDoc, getDocs, deleteDoc, query, where, } from "firebase/firestore";
 import products from "../json/products.json";
 
 const firebaseConfig = {
@@ -35,13 +35,53 @@ export const feedProducts = async () => {
     });
 };
 
-  
-  export const getProducts = async () => {
-    const querySnapshot = await getDocs(productsCollection);
-    // Convert query to a json array.
+export const getProducts = async () => {
+    let querySnapshot = await getDocs(productsCollection);
+
+    // Convert the query to a json array.
     let result = [];
     querySnapshot.forEach(async (product) => {
-       await result.push(product.data());
+        await result.push(product.data());
+    });
+    console.log({ result });
+    return result;
+};
+
+
+export const getProductById = async ({ queryKey }) => {
+    const [id] = queryKey;
+    const docRef = await doc(db, "products", id);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data();
+};
+
+
+export const getProductsByCategory = async ({ queryKey }) => {
+    const [category] = queryKey;
+    const q = await query(
+        productsCollection,
+        where("category", "==", category.toUpperCase())
+    );
+    let querySnapshot = await getDocs(q);
+    // Convert the query to a json array.
+    let result = [];
+    querySnapshot.forEach(async (product) => {
+        await result.push(product.data());
     });
     return result;
-  };
+};
+
+export const getProductsBySubCategory = async({queryKey}) =>{
+    const [subCategory] = queryKey;
+    const a = await query(
+        productsCollection,
+        where("subCategory","==",subCategory.toUpperCase())
+    );
+    let querySnapshot = await getDocs(a);
+    let result = [];
+    querySnapshot.forEach(async (product) => {
+        await result.push(product.data());
+    });
+    return result;
+
+}

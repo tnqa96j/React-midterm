@@ -35,7 +35,7 @@ export default function BreadcrumbNavbar({ product }) {
           ? (
             <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
               <Breadcrumb.Item>
-                <Link to="/AllProducts">
+                <Link to="/AllProducts/1">
                   商品總覽
                 </Link>
               </Breadcrumb.Item>
@@ -45,46 +45,46 @@ export default function BreadcrumbNavbar({ product }) {
             ? (
               <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
                 <Breadcrumb.Item>
-                  <Link to="/AllProducts">
+                  <Link to="/AllProducts/1">
                     商品總覽
                   </Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
                   <Link
-                    to={`/AllProducts/category/${categoryName}`}>{ch(categoryName)}</Link>
+                    to={`/AllProducts/category/${categoryName}/1`}>{ch(categoryName)}</Link>
                 </Breadcrumb.Item>
               </Breadcrumb>)
             : (
               <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
                 <Breadcrumb.Item>
-                  <Link to="/AllProducts">
+                  <Link to="/AllProducts/1">
                     商品總覽
                   </Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
                   <Link
-                    to={`/AllProducts/category/${categoryName}`}>{ch(categoryName)}</Link>
+                    to={`/AllProducts/category/${categoryName}/1`}>{ch(categoryName)}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
                   <Link
-                    to={`/AllProducts/category/${categoryName}/${subCategoryName}`}>{ch2(subCategoryName)}</Link>
+                    to={`/AllProducts/category/${categoryName}/${subCategoryName}/1`}>{ch2(subCategoryName)}</Link>
                 </Breadcrumb.Item>
               </Breadcrumb>)
 
         : (
           <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
             <Breadcrumb.Item>
-              <Link to="/AllProducts">
+              <Link to="/AllProducts/1">
                 商品總覽
               </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
               <Link
-                to={`/AllProducts/category/${product.category}`}>{product.categoryTitle}</Link>
+                to={`/AllProducts/category/${product.category}/1`}>{product.categoryTitle}</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
               <Link
-                to={`/AllProducts/category/${product.category}/${product.subCategory}`}>{product.subCategoryTitle}</Link>
+                to={`/AllProducts/category/${product.category}/${product.subCategory}/1`}>{product.subCategoryTitle }</Link>
             </Breadcrumb.Item>
 
             <Breadcrumb.Item>{product.name}</Breadcrumb.Item>

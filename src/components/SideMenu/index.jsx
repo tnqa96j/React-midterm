@@ -52,7 +52,7 @@ export default function SideMenu() {
                     <SubMenu key={item.key}  title={item.title} >
                         {item.items.map((child) => (
                             <Menu.Item style={{borderRadius:'0px'}} key={child.key}>
-                                 <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>
+                                 <Link to={`/AllProducts/category/${item.key}/${child.key}/1`}>{child.title}</Link>
                             </Menu.Item> 
                         ))}
                     </SubMenu>

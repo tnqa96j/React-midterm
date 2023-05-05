@@ -17,26 +17,26 @@ export default function Routers() {
 
 
 
-    const lightMode = useSelector(selectLightMode);
-    const theme = lightMode ? lightTheme : darkTheme;
+  const lightMode = useSelector(selectLightMode);
+  const theme = lightMode ? lightTheme : darkTheme;
 
-    return (
-        <ConfigProvider theme={theme}>
-            <HelmetProvider context={{}}>
-              <Router>
-                <ScrollToTop />
-                <Routes>
-                  <Route path='/' element={<Home />} />
-                  <Route path='/AllProducts' element={<AllProducts />} >
-                    <Route path='category/:categoryName' element={<AllProducts />} />
-                    <Route path='category/:categoryName/:subCategoryName' element={<AllProducts />} />
-                  </Route>
-                  <Route path='product/id/:productId' element={<Product/>} />
-                  <Route path='/About' element={<About />} />
-                  <Route path='/Qa' element={<Qa />} />
-                </Routes>
-              </Router>
-            </HelmetProvider>
-          </ConfigProvider>
-    )
+  return (
+    <ConfigProvider theme={theme}>
+      <HelmetProvider context={{}}>
+        <Router>
+          <ScrollToTop />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/AllProducts/:pageNumber' element={<AllProducts />} />
+            <Route path='/AllProducts/category/:categoryName/:pageNumber' element={<AllProducts />} />
+            <Route path='/AllProducts/category/:categoryName/:subCategoryName/:pageNumber' element={<AllProducts />} />
+
+            <Route path='product/id/:productId' element={<Product />} />
+            <Route path='/About' element={<About />} />
+            <Route path='/Qa' element={<Qa />} />
+          </Routes>
+        </Router>
+      </HelmetProvider>
+    </ConfigProvider>
+  )
 }
