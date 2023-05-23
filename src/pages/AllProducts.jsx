@@ -4,7 +4,7 @@ import ProductsTotal from "../components/ProductsTotal";
 import { useProducts } from "../react-query";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import { theme, Pagination } from "antd";
+import { theme } from "antd";
 import BreadcrumbNavbar from "../components/BreadcrumbNavbar";
 import DayNightSwitcher from "../components/DayNightSwitcher";
 

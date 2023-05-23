@@ -1,11 +1,12 @@
 import styles from "./productdetail.module.css"
 import '../../App.css';
 import PaymentAndShipping from "../PaymentAndShipping";
-import { Row, Col, InputNumber, Image, Tabs,Spin } from "antd";
+import { Row, Col, InputNumber, Image, Tabs, Spin } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
 import AddToBasketBtn from "../AddToBasketBtn";
 import { useState } from "react";
 import { LoadingOutlined } from '@ant-design/icons';
+import Comments from "../Comments";
 
 export default function ProductDetail({ product, isLoading }) {
 
@@ -110,6 +111,15 @@ export default function ProductDetail({ product, isLoading }) {
                                                     以數位或電磁紀錄形式儲存之商品、易於變質或損壞之商品、以及性質上無法或不適合退換之商品：如CD、VCD、DVD、電腦軟體，若產品瑕疵無法讀取僅接受原片換新。<br />
                                                     衣飾鞋類-如泳裝、T恤，如於送達後水洗或污損者。<br />
                                                 </p>
+                                            </>
+                                        ),
+                                    },
+                                    {
+                                        label: "商品評價",
+                                        key: "3",
+                                        children: (
+                                            <>
+                                                <Comments />
                                             </>
                                         ),
                                     },

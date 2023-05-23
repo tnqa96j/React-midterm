@@ -3,13 +3,15 @@ import styles from "./header.module.css";
 import { SearchOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Drawer, Avatar  } from 'antd';
+import { Link ,useNavigate} from 'react-router-dom';
+import { Drawer, Avatar } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
 import CartSummary from '../CartSummary';
 import DayNightSwitcher from '../DayNightSwitcher';
 import { theme } from 'antd';
+import Searching from '../Searching';
+import UserInfo from '../UserInfo';
 
 
 function Header() {
@@ -37,6 +39,11 @@ function Header() {
     };
     const [isScrolled, setIsScrolled] = useState(false);
 
+    const navigate = useNavigate();
+    const goToProfile = () => {
+        navigate("/auth/login?redirect=/auth/profile");
+     };
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
@@ -54,12 +61,12 @@ function Header() {
 
 
     const {
-        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar,colorBgContainer },
+        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar, colorBgContainer },
     } = theme.useToken();
 
     const headerClassName = ((!isScrolled) && isHome) ? styles.bar : `${styles.bar2} `;
     const headerStyle = ((!isScrolled) && isHome) ? { background: colorBgHeader } : { backgroundColor: colorBgHeader2 }
-    const avatarStyle = ((!isScrolled) && isHome) ?  { backgroundColor: 'transparent' } :{ backgroundColor: colorAvatar }
+    const avatarStyle = ((!isScrolled) && isHome) ? { backgroundColor: 'transparent' } : { backgroundColor: colorAvatar }
     const logoImg = ((!isScrolled) && isHome) ? logoImgBar1 : logoImgBar2
 
     return (
@@ -80,15 +87,15 @@ function Header() {
                         </li>
 
                         <li className={styles.li}>
-                            <Link to="/AllProducts" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
+                            <Link to="/AllProducts/1" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
                                 商品總覽
                             </Link>
                         </li>
 
                         <li className={styles.li}>
-                        <Link to="/Qa" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
-                           常見Q&A
-                        </Link>
+                            <Link to="/Qa" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
+                                常見Q&A
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -97,24 +104,13 @@ function Header() {
 
                 <div className={styles.icongroup}>
 
+                    <Searching />
+
                     <CartSummary avatarStyle={avatarStyle} />
 
-                    <Avatar shape="square" size={{
-                        xs: 32,
-                        sm: 32,
-                        md: 40,
-                        lg: 40,
-                        xl: 45,
-
-                    }} className={styles.search} icon={<SearchOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
-
-                    <Avatar shape="square" size={{
-                        xs:32,
-                        sm: 32,
-                        md: 40,
-                        lg: 40,
-                        xl: 45,
-                    }} className={styles.user} icon={<UserOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} />
+                    
+                    <UserInfo avatarStyle={avatarStyle} colorTopNavBar={colorTopNavBar}/>
+                    
 
                     <Avatar shape="square" size={{
                         xs: 32,
@@ -130,13 +126,13 @@ function Header() {
                     onClose={onClose}
                     placement="right"
                     width={'60%'}
-                    style={{backgroundColor:colorBgContainer}}
+                    style={{ backgroundColor: colorBgContainer }}
                 >
                     <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick} />
-                    {(isMobile) && 
-                    <div style={{display:'flex',flexDirection:'row-reverse',marginTop:'1em'}}>
-                    <DayNightSwitcher />
-                    </div>}
+                    {(isMobile) &&
+                        <div style={{ display: 'flex', flexDirection: 'row-reverse', marginTop: '1em' }}>
+                            <DayNightSwitcher />
+                        </div>}
                 </Drawer>
 
 

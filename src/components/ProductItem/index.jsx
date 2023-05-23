@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import styles from "./productitem.module.css";
 import '../../App.css';
 import { theme } from 'antd';
+import AddToFavoriteBtn from '../AddToFavoriteBtn';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import _ from 'lodash';
+import { useToggleFavoriteProduct, useUserInfo } from '../../react-query';
+
+
 
 export default function ProductItem({ product }) {
 
@@ -15,6 +21,17 @@ export default function ProductItem({ product }) {
     token: { colorProductItem, colorTextBase }
   } = theme.useToken();
 
+
+  const { mutate } = useToggleFavoriteProduct();
+  const { data: userInfo } = useUserInfo() || {};
+  const favorites = userInfo.favorites || [];
+  let isFavorite = _.includes(favorites, product.id);
+  const toggleFavorite = () => {
+    if (!!userInfo?.uid)
+      mutate({ productId: product.id, uid: userInfo?.uid })
+  }
+
+
   return (
     <div className={styles.item} style={{ backgroundColor: colorProductItem, borderColor: colorProductItem }}>
 
@@ -24,7 +41,7 @@ export default function ProductItem({ product }) {
 
 
       <h2>
-        <Link to={`/product/id/${product.id}` } className={styles.name} style={{ color: colorTextBase }} >
+        <Link to={`/product/id/${product.id}`} className={styles.name} style={{ color: colorTextBase }} >
           {product.name}
         </Link>
       </h2>
@@ -36,6 +53,19 @@ export default function ProductItem({ product }) {
       <h6 className={styles.price}>
         TWD {product.price}.00
       </h6>
+
+      <div className={styles.btngroup}>
+        <div onClick={toggleFavorite} className={styles.favorite}>
+          <AddToFavoriteBtn color={colorTextBase} productId={product.id}/>
+        </div>
+
+        <div className={styles.shop}>
+          <ShoppingCartOutlined />
+        </div>
+
+      </div>
+
+
     </div>
   );
 }

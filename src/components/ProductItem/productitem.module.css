@@ -80,3 +80,30 @@
     -webkit-box-orient: vertical;
     margin-left: 5%;
 }
+
+.btngroup{
+    display: grid;
+    grid-template-areas:
+    'favorite shop';
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.5rem;
+}
+
+.favorite{
+    grid-area: favorite;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.shop{
+    grid-area: shop;
+    display: flex;
+    justify-content: center;
+}
+.favorite:hover,.shop:hover{
+    transform:scale(1.2,1.2);
+    cursor: pointer;
+    transition:ease-in 0.5s ease 0s
+}

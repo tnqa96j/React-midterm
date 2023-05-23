@@ -1,0 +1,19 @@
+.icon {
+    font-size: 1.75rem;
+    color: white;
+}
+
+.icon:hover {
+    color: rgb(244, 211, 238);
+    cursor: pointer;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+}

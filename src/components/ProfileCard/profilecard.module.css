@@ -1,0 +1,12 @@
+.btn{
+    background-color:#dfdfdf ;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover{
+    filter: brightness(0.95);
+}
+label:hover{
+    cursor: pointer;
+}

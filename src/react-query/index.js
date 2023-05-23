@@ -1,5 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
-import { getProductById, getProducts, getProductsByCategory, getProductsBySubCategory } from "../api";
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import {
+    getProductById,
+    getProducts,
+    getProductsByCategory,
+    getProductsBySubCategory,
+    login,
+    register,
+    getUserInfo,
+    toggleFavoriteProduct,
+    updateUserInfo,
+    UploadPhoto,
+    logout,
+    writeComment,
+    getComments
+} from "../api";
 
 export const useProducts = () => {
     const { data, isLoading } = useQuery([], getProducts);
@@ -17,23 +31,92 @@ export const useProductsBySubCategory = (subCategory) => {
 }
 
 export const useProductById = (productId) => {
-    const { data, isLoading } = useQuery([productId], getProductById);
+    const { data, isLoading } = useQuery(["productId", productId], getProductById);
     return { data, isLoading };
 };
 
-export const useProductsByuseInfiniteQuery = () => {
-    const {
-      data,
-      isLoading,
-      isFetchingNextPage,
-      fetchNextPage,
-      hasNextPage,
-    } = useInfiniteQuery('myQuery', fetchMyData, {
-      getNextPageParam: (lastPage) => lastPage.after,
+
+
+export const useSignInWithEmailPassword = () => {
+    const queryClient = useQueryClient();
+    return useMutation(login, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(["uid"]);
+        },
     });
-  
-    return { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage };
+};
+
+export const useRegisterWithEmailPassword = () => {
+    const queryClient = useQueryClient();
+    return useMutation(register, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(["uid"]);
+        },
+    });
+};
+
+
+export const useLogout = () => {
+    const queryClient = useQueryClient();
+    return useMutation(logout, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(["uid"]);
+        },
+    });
+};
+
+export const useUserInfo = () => {
+    return useQuery({
+        queryKey: ["uid"],
+        queryFn: getUserInfo,
+        initialData: {},
+    });
+};
+
+export const useUpdateProfile = () => {
+    const queryClient = useQueryClient();
+    return useMutation(updateUserInfo, {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["uid"]);
+      },
+    });
   };
+
+  export const useUploadPhoto = () => {
+    const queryClient = useQueryClient();
+    return useMutation(UploadPhoto,{
+        onSuccess:() => {
+            queryClient.invalidateQueries(["uid"]);
+        },
+    });
+  };
+
+  export const useToggleFavoriteProduct = () => {
+    const queryClient = useQueryClient();
+    return useMutation(toggleFavoriteProduct, {
+      onSuccess: (data) => {
+        queryClient.invalidateQueries(["uid"]);
+      },
+    });
+  };
+
+  export const useWriteComment = () => {
+    const queryClient = useQueryClient();
+    return useMutation(writeComment, {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["comments"]);
+        queryClient.invalidateQueries(["uid"]);
+
+      },
+    });
+  };
+
+  export const useGetComments = (productId) =>{
+    console.log ("useGetComments" + productId)
+    const { data, isLoading } = useQuery(["comments", productId], getComments);
+    return { data, isLoading };
+  }
+  
 
 
 

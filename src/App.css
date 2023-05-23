@@ -138,11 +138,22 @@ background-color: transparent!important;
     width: 100%!important;
   }
   .ant-tabs-tab,.ant-tabs-tab-active{
-    width: 50%!important;
+    width: calc(100%/3)!important;
     justify-content: center!important;
   }
   
 }
+@media (max-width:320px) {
+  .ant-tabs-nav-list{
+    width: 100%!important;
+  }
+  .ant-tabs-tab,.ant-tabs-tab-active{
+    width: calc(100%/3.5)!important;
+    justify-content: center!important;
+  }
+  
+}
+
 
 /*SPINER*/
 .spinner-wrap{
