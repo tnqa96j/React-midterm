@@ -41,6 +41,12 @@
 }
 } 
 
+@media (min-width: 1440px) {  /*筆電*/
+  .container {
+    width: 1380px;
+  }
+  } 
+
 
 @media (min-width: 1600px) {  /*桌機*/
 .container {
@@ -57,15 +63,7 @@ min-width: 360px;
 }
 
 .mainLayout{
-  display: grid;
-  min-height: 100vh;
-  grid-template-areas: 
-    'header'
-    'content'
-    'footer'
-  ;
-  grid-template-rows: auto 1fr auto;
-  gap: 1em;
+position: relative;
 }
 
 .layoutHeader {
@@ -73,6 +71,12 @@ min-width: 360px;
   padding: 0;
   line-height: 1.6;
   background-color: #6f7d9c;
+}
+
+.top{
+  position: sticky;
+  top: 0;
+  z-index: 200;
 }
 
 .layoutContent{
@@ -133,6 +137,22 @@ background-color: transparent!important;
   border-radius: 100px!important;
 }
 
+.ant-tabs-nav-list{
+  width:100%!important;
+  justify-content: space-evenly!important;
+}
+.ant-tabs-ink-bar{
+  background-color: #94DFD3!important;
+  height: 5px!important;
+  border-radius: 3px!important;
+
+}
+.ant-tabs-tab,.ant-tabs-tab-active{
+  width:calc(100%/4)!important;
+  justify-content: center!important;
+}
+
+
 @media (max-width:576px) {
   .ant-tabs-nav-list{
     width: 100%!important;
@@ -163,4 +183,13 @@ background-color: transparent!important;
 }
 .spinner{
   margin: 20vh auto;
+}
+
+.ant-btn-primary{
+  box-shadow: 0 0 0 transparent !important;
+}
+
+
+.swiper-wrapper{
+  flex-direction:row !important;
 }

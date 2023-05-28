@@ -1,178 +1,87 @@
-.header{
-    position: relative;
-}
 
 .bar {
     display: grid;
-    grid-template-areas: 'logo nav icongroup';
-    grid-template-columns: 1fr 2fr 2fr;
-    height: 12vh;
-    min-height: 80px;
+    grid-template-areas: 'menu logo search icongroup';
+    grid-template-columns: 0.5fr 2fr 2fr 0.55fr;
     width: 100%;
-    transition: 0.3s all linear;
-}
-.bar2{
-    background-color: #DFAEF0    ;
-    display: grid;
-    grid-template-areas: 'logo nav icongroup';
-    grid-template-columns: 1fr 2fr 2fr;
-    height: 12vh;
-    min-height: 80px;
-    width: 100%;
-    position: fixed;
-    z-index: 200;
-    transition: 0.3s all linear;
-    top:0;
+    align-items: center;
+
 }
 
+
 /*
-    1.logo圖片
-    2.文字導覽
-    3.空格
-    4.icon區
+    1.MENU
+    2.logo
+    3.SEARCH.MAMBER.SHOPCART
 
     //記得設字體大小
 */
+.menu{
+    grid-area: menu;
+    justify-self: center;
+}
+.menu:hover{
+    cursor: pointer;
+    transform: translate(3px,1px);
+    transition: 0.3s ease-out;
+}
+
 .logo {
     grid-area: logo;
-    display: flex;
-    align-items: flex-end;
+    width: 150px;
 }
 
-.a {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5%;
+svg{
+    width: 100%;
 }
 
-
-.img {
-    width: 70%;
-}
-
-.nav {
-    grid-area: nav;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-
-.icongroup {
+.icongroup{
     grid-area: icongroup;
     display: flex;
-    align-items: flex-end;
-    gap: 1rem;
-    margin-bottom: 2%;
-    justify-content: center;
+    align-items: center
 }
 
-.ul {
-    list-style: none;
+
+
+.search{
+    grid-area: search;
+    position: relative;
     display: flex;
-    padding: 0;
-    margin-bottom: 2%;
+    justify-content: end;
+    width: 250px;
+    height: 36px;
+    justify-self: end;
+    margin: 20px;
 }
 
-
-.li {
-    
-    margin: auto 20px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-}
-.li:hover{
-    filter: brightness(0.7);
-}
-
-.icon {
+.searchicon{
+    position: relative;
     font-size: 1.75rem;
-    color: white;
+    z-index: 200;
+    right: 5px;
 }
-
-.icon:hover {
-    color: rgb(244, 211, 238);
+.searchicon:hover{
     cursor: pointer;
+    transform: translate(2px,2px);
+    transform: translate(3px,1px);
+    transition: 0.3s ease-out;
 }
 
-.menu {
-    grid-area: menu;
-    display: none;
-}
-.search,.user{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.menu:hover,.search:hover,.user:hover{
-    filter: brightness(0.8);
-    cursor: pointer;
-}
-.switcher{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10vw;
-    margin-top: 1rem;
+.space{
+   grid-area: space; 
 }
 
-
-@media (max-width:1000px) {
-    .bar,.bar2 {
-        grid-template-columns: 1.2fr 2.2fr  2fr;
-    }
-}
-
-@media (max-width:786px) {
-    .bar,.bar2  {
-        grid-template-areas: 'logo space icongroup';
-        grid-template-columns: 1.5fr 0.8fr 1.5fr;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .icongroup {
-        align-items: center;
-    }
-
-    .menu {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+@media (max-width:766.98px) {
     .logo{
-        align-items: center;
+        width:100px;
+        margin-left: 10%;
     }
 }
 
-@media (max-width:576px) {
-    .user {
-        display: none;
-    }
-    .bar,.bar2{
-        height: 10vh;
-        min-height: 60px;
+@media (max-width:575.98px) {
+    .bar{
+        margin-top: 5px;
+        grid-template-areas: 'menu logo  space icongroup';
+        grid-template-columns: 0.3fr 0.5fr  1fr 0.5fr;
     }
 }
-
-@media (max-width:430px) {
-    .bar,.bar2  {
-        grid-template-columns: 1fr  0.2fr 1fr;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .icongroup {
-        align-items: center;
-    }
-}
-
-/*還要做的:
-    1.螢幕寬度小於576px時其他三個icon消失
-    2.banner RWD調整高度和寬度
-*/

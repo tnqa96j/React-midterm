@@ -16,10 +16,10 @@ import {
 } from "../api";
 
 export const useProducts = () => {
-    const { data, isLoading } = useQuery([], getProducts);
-    return { data, isLoading };
-};
-
+    return useQuery([], getProducts);
+  };
+  
+  
 export const useProductsByCategory = (category) => {
     const { data, isLoading } = useQuery([category], getProductsByCategory);
     return { data, isLoading };
@@ -104,9 +104,8 @@ export const useUpdateProfile = () => {
     const queryClient = useQueryClient();
     return useMutation(writeComment, {
       onSuccess: () => {
-        queryClient.invalidateQueries(["comments"]);
         queryClient.invalidateQueries(["uid"]);
-
+        queryClient.invalidateQueries(["comments"]);
       },
     });
   };

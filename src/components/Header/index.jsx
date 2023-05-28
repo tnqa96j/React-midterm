@@ -3,8 +3,8 @@ import styles from "./header.module.css";
 import { SearchOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import Banner from "../Banner";
 import { useState, useEffect } from 'react';
-import { Link ,useNavigate} from 'react-router-dom';
-import { Drawer, Avatar } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { Drawer, Space } from 'antd';
 import { useMediaQuery } from '@material-ui/core';
 import SideMenuForMobile from '../SideMenuForMobile';
 import CartSummary from '../CartSummary';
@@ -12,6 +12,7 @@ import DayNightSwitcher from '../DayNightSwitcher';
 import { theme } from 'antd';
 import Searching from '../Searching';
 import UserInfo from '../UserInfo';
+import { Logo, Menu, Search, Logo2 } from '../Icons';
 
 
 function Header() {
@@ -27,22 +28,25 @@ function Header() {
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
     };
+    const toggleInput = () => {
+        setIsSeachInputOpen(!isSearchInputOpen)
+    }
 
     const onClose = () => {
         setIsDrawerOpen(false);
     };
 
     const isMobile = useMediaQuery(`(max-width:766.98px)`);
+    const isMobile2 = useMediaQuery(`(max-width:575.98px)`);
 
-    const CategoryClick = () => {
 
-    };
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isSearchInputOpen, setIsSeachInputOpen] = useState(false); //搜尋欄打開關閉
 
     const navigate = useNavigate();
     const goToProfile = () => {
         navigate("/auth/login?redirect=/auth/profile");
-     };
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,93 +65,91 @@ function Header() {
 
 
     const {
-        token: { colorBgHeader, colorBgHeader2, colorAvatar, colorTopNavBar, logoImgBar1, logoImgBar2, textShadowTopNavBar, colorBgContainer },
+        token: { colorLogo, colorBgContainer, colorPrimary },
     } = theme.useToken();
 
-    const headerClassName = ((!isScrolled) && isHome) ? styles.bar : `${styles.bar2} `;
-    const headerStyle = ((!isScrolled) && isHome) ? { background: colorBgHeader } : { backgroundColor: colorBgHeader2 }
-    const avatarStyle = ((!isScrolled) && isHome) ? { backgroundColor: 'transparent' } : { backgroundColor: colorAvatar }
-    const logoImg = ((!isScrolled) && isHome) ? logoImgBar1 : logoImgBar2
+    /*
+    1.menu
+    2.logo
+    3.search
+    4.shopcart
+    5.user
+    */
+
+
 
     return (
-        <div className={styles.header}>
-            <div className={headerClassName} style={headerStyle}>
+        <div className={styles.header} >
+            <div className={styles.bar}>
+
+                <div className={styles.menu} onClick={toggleDrawer}>
+                    <Menu color={colorPrimary} />
+                </div>
+
                 <div className={styles.logo}>
-                    <Link to="/" className={styles.a}>
-                        <img src={logoImg} className={styles.img} />
+                    <Link to="/">
+                        {
+                            isMobile ? (<Logo2 color={colorLogo} />)
+                                : (<Logo color={colorLogo} />)
+                        }
+
                     </Link>
                 </div>
 
-                <div className={styles.nav}>
-                    <ul className={styles.ul}>
-                        <li className={styles.li}>
-                            <Link to="/About" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
-                                網站介紹
-                            </Link>
-                        </li>
-
-                        <li className={styles.li}>
-                            <Link to="/AllProducts/1" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
-                                商品總覽
-                            </Link>
-                        </li>
-
-                        <li className={styles.li}>
-                            <Link to="/Qa" style={{ textDecoration: 'none', color: colorTopNavBar, textShadow: textShadowTopNavBar }}>
-                                常見Q&A
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
 
 
+                {
+                    isMobile2 ? (<div className={styles.space}></div>) : (
+                        <div className={styles.search}>
+                            {isSearchInputOpen
+                                ? (<>
+                                    <Searching />
+                                    <div className={styles.searchicon} onClick={toggleInput}>
+                                        <Search color={colorPrimary} />
+                                    </div>
+                                </>
+                                )
+                                : (<div className={styles.searchicon} onClick={toggleInput}>
+                                    <Search color={colorPrimary} />
+                                </div>)
+                            }
+                        </div>)
+                }
 
                 <div className={styles.icongroup}>
+                    <Space size="large">
+                        <CartSummary />
 
-                    <Searching />
-
-                    <CartSummary avatarStyle={avatarStyle} />
-
-                    
-                    <UserInfo avatarStyle={avatarStyle} colorTopNavBar={colorTopNavBar}/>
-                    
-
-                    <Avatar shape="square" size={{
-                        xs: 32,
-                        sm: 32,
-                        md: 40,
-                        lg: 40,
-                        xl: 45,
-                    }} className={styles.menu} icon={<MenuOutlined className={styles.icon} style={{ color: colorTopNavBar }} onClick={toggleDrawer} />} style={avatarStyle} />
+                        <UserInfo />
+                    </Space>
                 </div>
-
-                <Drawer
-                    open={isDrawerOpen}
-                    onClose={onClose}
-                    placement="right"
-                    width={'60%'}
-                    style={{ backgroundColor: colorBgContainer }}
-                >
-                    <SideMenuForMobile onClose={onClose} CategoryClick={CategoryClick} />
-                    {(isMobile) &&
-                        <div style={{ display: 'flex', flexDirection: 'row-reverse', marginTop: '1em' }}>
-                            <DayNightSwitcher />
-                        </div>}
-                </Drawer>
-
-
-
-
-
-
             </div>
-            {isHome && <Banner />}
-            <div className={styles.switcher}>
-                {(!isMobile) && <DayNightSwitcher />}
-            </div>
+
+
+
+
+
+
+            <Drawer
+                open={isDrawerOpen}
+                onClose={onClose}
+                placement="left"
+                width={'60%'}
+                style={{ backgroundColor: colorBgContainer }}
+            >
+                <SideMenuForMobile onClose={onClose} />
+                {(isMobile) &&
+                    <div style={{ display: 'flex', flexDirection: 'row-reverse', marginTop: '1em' }}>
+                        <DayNightSwitcher />
+                    </div>}
+            </Drawer>
+
 
 
         </div>
+
+
+
 
 
     );

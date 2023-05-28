@@ -1,22 +1,26 @@
 import styles from './comments.module.css'
-import { List, Input, Avatar, Row, Col, Rate, Form, Button,Spin } from 'antd'
+import { List, Input, Avatar, Row, Col, Rate, Form, Button, Spin } from 'antd'
 const { TextArea } = Input;
 import { useUserInfo, useWriteComment, useGetComments } from "../../react-query";
 import { useParams } from "react-router-dom";
 import { LoadingOutlined } from '@ant-design/icons';
+import { useEffect } from 'react';
 
 
 export default function Comments() {
 
     const { productId } = useParams();
 
-    const { data: userInfo } = useUserInfo();
+    const { data: userInfo } = useUserInfo() || {};
     const writeComment = useWriteComment();
-    const { data: commentInfo, isLoading } = useGetComments(productId);
+    const { data: commentInfo, isLoading } = useGetComments(productId) || {};
+
+    console.log(userInfo.name)
 
     console.log(commentInfo)
 
     const [form] = Form.useForm();
+
     const onFinish = (values) => {
         console.log('評論內容:', values.comment);
         console.log('星數:', values.rating);
@@ -29,6 +33,9 @@ export default function Comments() {
         // 清空表單
         form.resetFields();
     };
+
+
+
 
     const antIcon = (
         <LoadingOutlined

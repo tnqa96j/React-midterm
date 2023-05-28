@@ -4,30 +4,27 @@
     display: flex;
     flex-direction: column;
     min-width: 160px;
-    border-radius: 4px;
-    border: 5px solid #d3f3ee;
+    border-bottom: 1px solid #5A9790;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right:20px ;
 }
 .item:hover{
-    background-color: rgb(116, 161, 147);
-    border-color: rgb(78, 78, 78);
-    border: 5px solid rgb(203, 203, 203);
-    transition: 0.5s all linear;
+    box-shadow: 0 0 5px #5A9790;
+    border-bottom-width: 0;
 }
 
-.sqare{
-    align-self: center;
-    width: 100%;
-    height: 80%;
-    min-height: 250px;
+.square {
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
-    background-color:rgb(232, 245, 232);
-}
+    justify-content:center ;
+  }
+
 .img{
-    max-width: 100%; 
-   max-width: 100%;
+    height: 100%;
     object-fit: contain; 
-    border: 1px solid rgb(199, 198, 198);
 }
 
 .img:hover{
@@ -65,12 +62,12 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     margin-left: 5%;
+    font-size: 1.2rem;
 }
-.name:hover{
-    color: rgb(96, 96, 96);
-}
+
 .price{
     margin-left: 5%;
+    margin-bottom: 20px;
 }
 .writer{
     overflow: hidden;
@@ -79,6 +76,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     margin-left: 5%;
+    font-size: 1rem;
 }
 
 .btngroup{
@@ -106,4 +104,16 @@
     transform:scale(1.2,1.2);
     cursor: pointer;
     transition:ease-in 0.5s ease 0s
+}
+
+@media (max-width:576) {
+    .square{
+        height: 150px;
+    }
+}
+
+@media (max-width:450px) {
+    .square{
+        height: 100px;
+    }
 }

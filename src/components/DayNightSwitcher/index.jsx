@@ -3,6 +3,7 @@ import { Sun, Moon } from "../Icons";
 import { theme } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { selectLightMode, setColorMode } from "../../redux/colorSlice";
+import styles from './daynightswitcher.module.css'
 import '../../App.css';
 
 

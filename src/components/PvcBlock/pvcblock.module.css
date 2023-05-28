@@ -1,0 +1,124 @@
+.pvc{
+    width: 100%;
+    height: 40vh;
+    min-height: 200px;
+    background: linear-gradient(to left,#94DFD3,#D3F3EE);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.h1{
+    width: 100%;
+margin-right: 15%;
+font-size: 1.5rem;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+
+.text{
+    font-size: 0.8rem;
+}
+
+.row1{
+    display: flex;
+    width:80% ;
+    height: 45%;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.row2{
+    display: flex;
+    width:80% ;
+    height: 45%;
+    align-items: center;
+    font-size: 1.2rem;
+
+}
+.row3{
+    display: flex;
+    height: 8rem;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.sq1{
+    background: linear-gradient(135deg,#DFAEF0,#f2def9);
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+.sq2{
+    background: linear-gradient( 135deg,#94DFD3,#D3F3EE);
+    height: 100%;
+    aspect-ratio: 1/1;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+.sq3{
+    background: linear-gradient(135deg,#DFAEF0,#f2def9);
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.sq1:hover,.sq2:hover,.sq3:hover{
+    box-shadow: 0 0 2px;
+    transition: 0.1s all linear;
+}
+
+.other{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,#DFAEF0,#f2def9);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.h12{
+    width: 100%;
+margin-left: 15%;
+font-size: 1.5rem;
+display: flex;
+flex-direction: column;
+
+}
+.sss{
+    margin-left: 7rem;
+}
+
+@media (max-width:992px) {
+    .other{
+        height: 40vh;
+        min-height: 200px;
+    }
+    .sss{
+        margin-left: 0;
+    }
+}
+
+@media (max-width:766.98px) {
+    .sq2{
+        margin-right: 0;
+    }
+}
+
+@media (max-width:576px) {
+    .sq1,.sq2,.sq3{
+        height: 75%;
+    }
+}

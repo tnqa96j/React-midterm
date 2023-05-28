@@ -3,12 +3,18 @@ import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 import { useUserInfo } from "../../react-query";
 import { useNavigate } from 'react-router-dom';
+import { theme } from 'antd';
+import { Logo, Menu, Search, Basket, User } from '../Icons';
 
 
-export default function UserInfo({ colorTopNavBar, avatarStyle }) {
+export default function UserInfo() {
 
     const { data: userInfo } = useUserInfo();
     const navigate = useNavigate();
+
+    const {
+        token: { colorPrimary }
+    } = theme.useToken();
 
     const goToProfile = () => {
         if (userInfo?.name)
@@ -18,7 +24,7 @@ export default function UserInfo({ colorTopNavBar, avatarStyle }) {
     };
 
     return (
-        <div onClick={goToProfile}>
+        <>
             {userInfo?.photoUrl
                 ? (<Avatar shape='circle' size={{
                     xs: 32,
@@ -26,18 +32,13 @@ export default function UserInfo({ colorTopNavBar, avatarStyle }) {
                     md: 40,
                     lg: 40,
                     xl: 45,
-                }} className={styles.user} src={userInfo.photoUrl}/>)
-                : (<Avatar shape="square" size={{
-                    xs: 32,
-                    sm: 32,
-                    md: 40,
-                    lg: 40,
-                    xl: 45,
-                }} className={styles.user} icon={<UserOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} style={avatarStyle} >
-
-                </Avatar>)
+                }} className={styles.user} src={userInfo.photoUrl} onClick={goToProfile} />)
+                : (<div className={styles.icon}  onClick={goToProfile} >
+                    <User color={colorPrimary}/>
+                </div>
+                )
             }
+        </>
 
-        </div>
     )
 }

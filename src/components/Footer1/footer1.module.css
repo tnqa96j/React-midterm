@@ -1,0 +1,15 @@
+.bg{
+    width: 100%;
+    height: 10rem;
+    background-color: #D3F3EE;
+    display: flex;
+    text-align: center;
+}
+
+.search{
+    margin-top: 0.5rem;
+    align-self: center;
+    position: relative;
+    width:250px;
+    height: 40px;
+}

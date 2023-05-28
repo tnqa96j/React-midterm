@@ -269,8 +269,10 @@ export const toggleFavoriteProduct = async ({ productId, uid }) => {
 
 //寫評論進firebase
 export const writeComment = async ({ productId, comment, rate }) => {
-    let user = auth.currentUser;
-    localStorage.setItem("user", JSON.stringify(user));
+    const storedUser = localStorage.getItem("user");
+    const user = auth?.currentUser || JSON.parse(storedUser) || null;
+
+    console.log(user)
 
     if (!user) {
         console.log("User not logged in.");
@@ -296,7 +298,6 @@ export const writeComment = async ({ productId, comment, rate }) => {
         rate: rate,
         time: timeStamp,
     });
-
 }
 
 
@@ -339,6 +340,9 @@ export const writeComment = async ({ productId, comment, rate }) => {
 };*/
 
 export const getComments = async ({ queryKey }) => {
+    let user = auth.currentUser;
+    localStorage.setItem("user", JSON.stringify(user));
+
     const [_, productId] = queryKey;
   
     const productRef = doc(productsCollection, productId);

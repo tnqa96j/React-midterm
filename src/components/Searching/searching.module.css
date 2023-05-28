@@ -1,7 +1,11 @@
 .list{
     position: absolute;
+    left: 0;
+    top:43px;
+    border-radius:10px ;
+    box-shadow:0 2px 5px #9573a1;
     z-index: 200;
-    width: 200px;
+    width: 250px;
     font-size: 0.5em;
     max-height: 500px;
     overflow-y: auto;
@@ -9,8 +13,8 @@
 .option{
     padding: 10px;
     overflow: scroll;
-    
+    background-color: #e8f8f6;
 }
 .option:hover{
-    filter: brightness(0.9);
+    filter: brightness(0.98);
 }

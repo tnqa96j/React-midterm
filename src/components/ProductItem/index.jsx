@@ -9,7 +9,7 @@ import { useToggleFavoriteProduct, useUserInfo } from '../../react-query';
 
 
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, icon }) {
 
   /*這是一個將「單一」商品顯示出來的元件
     1.包含圖片、標題、價錢的一個方塊
@@ -33,13 +33,12 @@ export default function ProductItem({ product }) {
 
 
   return (
-    <div className={styles.item} style={{ backgroundColor: colorProductItem, borderColor: colorProductItem }}>
-
-      <Link to={`/product/id/${product.id}`} >
-        <img src={product.image} className={styles.img} />
-      </Link>
-
-
+    <div className={styles.item}>
+      <div className={styles.square} style={{ backgroundColor: colorProductItem }}>
+        <Link to={`/product/id/${product.id}`} >
+          <img src={product.image} className={styles.img} />
+        </Link>
+      </div>
       <h2>
         <Link to={`/product/id/${product.id}`} className={styles.name} style={{ color: colorTextBase }} >
           {product.name}
@@ -51,20 +50,24 @@ export default function ProductItem({ product }) {
       </h3>
 
       <h6 className={styles.price}>
-        TWD {product.price}.00
+        NT $ {product.price}
       </h6>
 
-      <div className={styles.btngroup}>
-        <div onClick={toggleFavorite} className={styles.favorite}>
-          <AddToFavoriteBtn color={colorTextBase} productId={product.id}/>
-        </div>
+      {
+        (icon == true)
+          ? (<div className={styles.btngroup}>
+            <div onClick={toggleFavorite} className={styles.favorite}>
+              <AddToFavoriteBtn color={colorTextBase} productId={product.id} />
+            </div>
 
-        <div className={styles.shop}>
-          <ShoppingCartOutlined />
-        </div>
+            <div className={styles.shop}>
+              <ShoppingCartOutlined />
+            </div>
 
-      </div>
+          </div>)
+          : (<></>)
 
+      }
 
     </div>
   );

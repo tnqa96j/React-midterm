@@ -1,0 +1,112 @@
+.block{
+    width: 100%;
+    height: 40vh;
+    min-height: 200px;
+    background: linear-gradient(to bottom,#94DFD3,#D3F3EE);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.text{
+    font-size: 0.9rem;
+}
+.ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 50px auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.li1,.li2{
+    width: calc(100%/4.2);
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 2.5;
+    letter-spacing: 1px;
+}
+
+.li1{
+   /* background-color: #EED4F7;*/
+
+   background: linear-gradient(to right,#DFAEF0,#f2def9);
+   
+}
+.li1:hover{
+    box-shadow: 0 0 2px;
+    transition: 0.1s all linear;
+}
+
+.li2{
+   /* background-color: #D3F3EE;*/
+   background: linear-gradient(to right,#94DFD3,#D3F3EE);
+}
+
+.li2:hover{
+    box-shadow: 0 0 2px;
+    transition: 0.1s all linear;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    margin: auto;
+    flex-direction: column;
+  }
+
+  @media (max-width: 576px) { 
+    .container {
+    width: 90%;
+    }
+  }
+  
+  @media (min-width: 576px) {  /*手機*/
+  .container {
+   width: 540px;
+  }
+
+  } 
+  
+  @media (min-width: 768px) {  /*平板*/
+  .container {
+    width: 680px;
+  }
+  } 
+  
+  @media (min-width: 992px) {
+  .container {
+    width: 965px;
+  }
+  } 
+  
+  @media (min-width: 1200px) {  /*筆電*/
+  .container {
+    width: 1140px;
+  }
+  } 
+  
+  @media (min-width: 1440px) {  /*筆電*/
+    .container {
+      width: 1250px;
+    }
+    } 
+  
+  
+  @media (min-width: 1600px) {  /*桌機*/
+  .container {
+    width: 1500px;
+  }
+  } 
+
+  @media (max-width:576px) {
+    .li1,.li2{
+      width:calc(100%/2.2);
+      margin-top: 20px;
+    }
+  }

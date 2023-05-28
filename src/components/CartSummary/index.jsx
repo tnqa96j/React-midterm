@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItems } from "../../redux/cartSlice";
 import { theme } from 'antd';
+import { Logo,Menu,Search,Basket,User } from '../Icons';
+
 
 
 export default function CartSummary({ avatarStyle }) {
 
     const {
-        token: { colorAvatar, colorTopNavBar }
+        token: { colorPrimary,badgeColor }
     } = theme.useToken();
 
 
@@ -72,16 +74,11 @@ export default function CartSummary({ avatarStyle }) {
 
     return (
         <Popover placement="bottom" title={text} content={content} trigger="click">
-            <Badge count={count} color={colorTopNavBar}>
-                <Avatar shape="square" size={{
-                    xs: 32,
-                    sm: 32,
-                    md: 40,
-                    lg: 40,
-                    xl: 45,
-                }} className={styles.shop} style={avatarStyle} icon={<ShoppingCartOutlined className={styles.icon} style={{ color: colorTopNavBar }} />} />
+            <Badge count={count} color={badgeColor}>
+                <div className={styles.icon}  >
+                <Basket color={colorPrimary}/>
+                </div>
             </Badge>
-
         </Popover>
     );
 }

@@ -1,11 +1,12 @@
 .icon {
-    font-size: 1.75rem;
-    color: white;
+    
 }
 
 .icon:hover {
-    color: rgb(244, 211, 238);
     cursor: pointer;
+    transform: translate(2px,2px);
+    transform: translate(3px,1px);
+    transition: 0.3s ease-out;
 }
 
 .user{

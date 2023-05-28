@@ -1,32 +1,47 @@
 .footer{
     display: grid;
     grid-template-areas:
-    'logo nav member contact'
+    'logo logo logo logo'
+    'text text text text'
     'copyright copyright copyright copyright';
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr 2.5fr 0.2fr;
     height:auto;
 }
 .logo{
     grid-area:logo;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
 }
-.img {
-    width: 60%;
-    margin-block-start: 1.2em;}
+.lo{
+    width:200px;
+    justify-self: center;
+}
+
+
+.text{
+    grid-area:text;
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+}
+
 .nav{
     grid-area:nav;
 }
+
 .member{
     grid-area:member;
 }
+
 .contact{
+
     grid-area:contact;
 }
+
 .copyright{
     grid-area: copyright;
     text-align: center;
@@ -34,6 +49,7 @@
     align-items: center;
     justify-content: center;
     font-size: 0.5rem;
+    background-color: #402A47;
 }
 .icon{
     display: none;
@@ -42,51 +58,32 @@
     display: block;
 }
 h2{
-    font-weight: 250;
-    margin-top: 5%;
+    margin-top: 2rem;
+    font-size: 1.2rem;
 }
 .ul{
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 .li{
     font-size: 1rem;
+    line-height: 2;
 }
-@media (max-width:768px) {
-    .icon{
-        display: block;
-        font-size: 1.75rem;
-        display: flex;
-        gap: 10%;
-        justify-content: center;
-    }
-    .footer{
-        grid-template-areas:
-        'logo nav member'
-        'copyright copyright copyright';
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 3fr 1fr;
-    }
-    .contact{
-        display: none;
-    }
-}
+
+
 @media (max-width:576px) {
-    .footer{
-        grid-template-areas:
-        'logo logo'
-        'nav member'
-        'copyright copyright';
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 2fr 5fr 1fr;
-    }
-    .logo{
-        margin-bottom: 5%;
-    }
-    .nav{
-        margin: 5% auto;
-    }
-    .member{
-        margin: 5% auto;
-    }
+  .text{
+    gap: 2rem;
+
+  }
+  .ul{
+    text-align: left;
+  }
+  h2{
+    font-size: 1rem;
+  }
+  .li{
+    font-size: 0.8rem;
+  }
 }
