@@ -66,7 +66,7 @@ export default function RegisterCard({ redirect }) {
                 className={styles.form}
                 style={{backgroundColor:colorBgBase,borderColor:colorBgBase}}
             >
-                <h1 style={{textAlign:'center',marginBottom:'2rem'}}>登錄</h1>
+                <h1 style={{textAlign:'center',marginBottom:'2rem'}}>註冊</h1>
                 <Form
                     {...formItemLayout}
                     form={form}

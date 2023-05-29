@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom'
 import { theme } from 'antd'
 import ProductSlider from '../ProductSlider'
 import '../../App.css';
+import { useNavigate } from 'react-router-dom'
 
 export default function MangaBlock({ products }) {
+    const navigate = useNavigate();
+    const handleClick = () =>{
+        navigate('/AllProducts/category/Manga/1')
+    }
 
     /*
     1.img
@@ -23,7 +28,7 @@ export default function MangaBlock({ products }) {
                     <div className={styles.block} style={{color:'#fcfcfc',textShadow: '0 0 0.1em #000000,0 0 0.1em #4d304b,0 0 0.5em #4d304b'}}>
                         <h1 className={styles.h1}>漫畫<br />專區</h1>
                         <p className={styles.text}>不用廢話就是漫畫，這裡提供男性向、女性向、BL、GL等多元類型漫畫。</p>
-                        <Button type="primary" style={{ backgroundColor: '#35B1A2', borderRadius: '0', width: '50%',gridArea:'button',marginRight:'5%' }}>查看更多</Button>
+                        <Button type="primary" style={{ backgroundColor: '#35B1A2', borderRadius: '0', width: '50%',gridArea:'button',marginRight:'5%' }} onClick ={handleClick}>查看更多</Button>
                     </div>
                 </Col>
 

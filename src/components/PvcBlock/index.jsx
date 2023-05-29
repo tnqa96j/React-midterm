@@ -4,13 +4,20 @@ import { Link } from 'react-router-dom'
 import { theme } from 'antd'
 import ProductSlider from '../ProductSlider'
 import { useMediaQuery } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom'
 
 export default function PvcBlock({ products }) {
     /*
         1.pvc img 2.three block
         3.productSlider 4.other img
      */
-
+        const navigate = useNavigate();
+        const handleClick = () =>{
+            navigate('/AllProducts/category/PVC/1')
+        }
+        const handleClick2 = () =>{
+            navigate('/AllProducts/category/Merch/1')
+        }
     const {
         token: { colorBgBase, colorTopNavBar },
     } = theme.useToken();
@@ -32,7 +39,7 @@ export default function PvcBlock({ products }) {
                             <p className={styles.text}>這裡有很多公仔、真的。</p>
                         </div>
 
-                        <Button type="primary" style={{ backgroundColor: '#6C5574', borderRadius: '30px', width: '230px', marginRight: '15%' }}>查看更多</Button>
+                        <Button type="primary" style={{ backgroundColor: '#6C5574', borderRadius: '30px', width: '230px', marginRight: '15%' }} onClick ={handleClick}>查看更多</Button>
                     </div>
                 </Col>
 
@@ -104,7 +111,7 @@ export default function PvcBlock({ products }) {
                             <p className={styles.text}>這裡有很多周邊、真的。</p>
                         </div>
 
-                        <Button type="primary" style={{ backgroundColor: '#5A9790', borderRadius: '30px', width: '230px', marginLeft: '15%' }}>查看更多</Button>
+                        <Button type="primary" style={{ backgroundColor: '#5A9790', borderRadius: '30px', width: '230px', marginLeft: '15%' }} onClick ={handleClick2}>查看更多</Button>
 
                     </div>
                 </Col>
