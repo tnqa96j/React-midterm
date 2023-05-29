@@ -30,26 +30,26 @@ export default function NovelBlock({ products }) {
 
             <ul className={styles.ul}>
 
-                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li1}>
+                <Link to="/AllProducts/category/Novel/Horror/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li1}>
                     <li >
                         驚悚恐怖區
                     </li>
                 </Link>
 
 
-                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li2}>
+                <Link to="/AllProducts/category/Novel/Suspense/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li2}>
                     <li >
                         懸疑推理區
                     </li>
                 </Link>
 
-                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li1}>
+                <Link to="/AllProducts/category/Novel/SF/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li1}>
                     <li >
                         奇幻科幻區
                     </li>
                 </Link>
 
-                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li2}>
+                <Link to="/AllProducts/category/Novel/Romance/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.li2}>
                     <li >
                         浪漫愛情區
                     </li>

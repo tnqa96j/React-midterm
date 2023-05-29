@@ -54,13 +54,13 @@ export default function PvcBlock({ products }) {
                     {isMobile ? (
                         <>
                             <div className={styles.row3}>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq1}>
+                                <Link to="/AllProducts/category/PVC/Animate/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq1}>
                                     動畫
                                 </Link>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq2}>
+                                <Link to="/AllProducts/category/PVC/Vtuber/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq2}>
                                     Vtuber
                                 </Link>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq3}>
+                                <Link to="/AllProducts/category/Merch/item/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq3}>
                                     生活<br />小物
                                 </Link>
                             </div>
@@ -68,15 +68,15 @@ export default function PvcBlock({ products }) {
                     ) : (
                         <>
                             <div className={styles.row1}>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq1}>
+                                <Link to="/AllProducts/category/PVC/Animate/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq1}>
                                     動畫
                                 </Link>
                             </div>
                             <div className={styles.row2}>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq2}>
+                                <Link to="/AllProducts/category/PVC/Vtuber/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq2}>
                                     Vtuber
                                 </Link>
-                                <Link to="/About" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq3}>
+                                <Link to="/AllProducts/category/Merch/item/1" style={{ textDecoration: 'none', color: '#4d304b' }} className={styles.sq3}>
                                     生活<br />小物
                                 </Link>
                             </div>
