@@ -6,20 +6,24 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItems } from "../../redux/cartSlice";
 import { theme } from 'antd';
-import { Logo,Menu,Search,Basket,User } from '../Icons';
+import { Logo, Menu, Search, Basket, User } from '../Icons';
+import { useUserInfo } from "../../react-query";
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function CartSummary({ avatarStyle }) {
 
     const {
-        token: { colorPrimary,badgeColor }
+        token: { colorPrimary, badgeColor }
     } = theme.useToken();
+    const navigate = useNavigate();
 
 
 
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
+    const { data: userInfo } = useUserInfo();
 
     const count = (cartItems.length > 0)
         ? cartItems.reduce((sum, item) => sum + item.qty, 0)
@@ -29,6 +33,13 @@ export default function CartSummary({ avatarStyle }) {
         return (cartItems.length > 0) ?
             cartItems.reduce((sum, item) => sum + item.price * item.qty, 0)
             : 0;
+    }
+
+    const goToShipping = () => {
+        if (userInfo?.name)
+            navigate("/shopping/shipping")
+        else
+            navigate("/auth/login?redirect=/shopping/shipping");
     }
 
     const text = <span>最近選購的商品</span>;
@@ -66,7 +77,7 @@ export default function CartSummary({ avatarStyle }) {
                 : (
                     <div>
                         <div className={styles.totalprice}>總金額：${getTotalPrice()}</div>
-                        <Button block type="primary">結帳</Button>
+                        <Button block type="primary" onClick={goToShipping}>結帳</Button>
                     </div>)
             }
         </div>
@@ -76,7 +87,7 @@ export default function CartSummary({ avatarStyle }) {
         <Popover placement="bottom" title={text} content={content} trigger="click">
             <Badge count={count} color={badgeColor}>
                 <div className={styles.icon}  >
-                <Basket color={colorPrimary}/>
+                    <Basket color={colorPrimary} />
                 </div>
             </Badge>
         </Popover>

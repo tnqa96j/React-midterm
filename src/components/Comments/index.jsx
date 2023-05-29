@@ -89,7 +89,7 @@ export default function Comments() {
 
 
                                 <Form.Item>
-                                    <Button type="primary" htmlType="submit">提交評論</Button>
+                                    <Button type="primary" htmlType="submit" style={{width:'200px'}}>提交評論</Button>
                                 </Form.Item>
                             </Form>
                         </Col>

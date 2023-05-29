@@ -26,7 +26,7 @@ export default function PvcBlock({ products }) {
                     md={{ span: 15 }}
                     lg={{ span: 15 }}
                     xl={{ span: 15 }}>
-                    <div className={styles.pvc} style={{ color: '#4d304b' }}>
+                    <div className={styles.pvc} style={{ color: '#fcfcfc' }}>
                         <div className={styles.h1}>
                             公仔專區
                             <p className={styles.text}>這裡有很多公仔、真的。</p>
@@ -98,7 +98,7 @@ export default function PvcBlock({ products }) {
                     md={{ span: 24 }}
                     lg={{ span: 9 }}
                     xl={{ span: 9 }}>
-                    <div className={styles.other} style={{ color: '#4d304b' }}>
+                    <div className={styles.other} style={{ color: '#fcfcfc' }}>
                         <div className={styles.h12}>
                             周邊專區
                             <p className={styles.text}>這裡有很多周邊、真的。</p>

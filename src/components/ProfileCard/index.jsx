@@ -1,7 +1,7 @@
 import styles from './profilecard.module.css'
 import UploadAvatar from '../UploadAvatar';
 import { useState, useEffect } from 'react';
-import { useUploadPhoto, useUpdateProfile, useLogout, useUserInfo,useGetFavoriteProducts } from '../../react-query';
+import { useUploadPhoto, useUpdateProfile, useLogout, useUserInfo, useGetFavoriteProducts } from '../../react-query';
 import { Button, Col, Form, Input, Row, Select, DatePicker, Upload, Avatar, Tabs, notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
@@ -56,8 +56,8 @@ export default function ProfileCard({ redirect }) {
     const uploadPhoto = useUploadPhoto();
 
     const { data: userInfo } = useUserInfo() || {};
-    const { data:favoriteProduct,isLoading } = useGetFavoriteProducts(userInfo.uid) || {};
-    favoriteProduct?console.log("有喔") :console.log("沒喔")
+    const { data: favoriteProduct, isLoading } = useGetFavoriteProducts(userInfo.uid) || {};
+    favoriteProduct ? console.log("有喔") : console.log("沒喔")
 
     const update = useUpdateProfile();
     const logout = useLogout();
@@ -156,7 +156,7 @@ export default function ProfileCard({ redirect }) {
 
     const key = 'updatable';
 
-//更新資料成功出現
+    //更新資料成功出現
     const openNotification = () => {
         setTimeout(() => {
             notification.open({
@@ -164,16 +164,16 @@ export default function ProfileCard({ redirect }) {
                 message: '已成功更新個人資料！',
                 placement: 'bottom',
                 duration: 1,
-                maxCount:1
+                maxCount: 1
             })
-          }, 500);
-        };
+        }, 500);
+    };
 
-//撈ㄍ興趣清單
+    //撈ㄍ興趣清單
 
 
 
-    
+
 
 
     return (
@@ -246,8 +246,9 @@ export default function ProfileCard({ redirect }) {
 
                             </Row>
 
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                                 <Button onClick={toggleArea} style={{ width: '40%', margin: '2rem auto' }}>編輯個人資料</Button>
+                                <Button onClick={onLogout} style={{ width: '40%', marginBottom: '2rem' }} danger type='primary'>登出</Button>
                             </div>
 
 
@@ -435,8 +436,12 @@ export default function ProfileCard({ redirect }) {
                     key: "2",
                     children: (
                         <div className={styles.m1}>
-                             <h1 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{userInfo.name}的興趣清單</h1>
-                        <ProductList products={favoriteProduct} isLoading={isLoading}/>
+                            <h1 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{userInfo.name}的興趣清單</h1>
+
+                            {favoriteProduct ? (
+                                <ProductList products={favoriteProduct} isLoading={isLoading} />
+                            ) : null
+                            }
                         </div>
                     ),
                 },

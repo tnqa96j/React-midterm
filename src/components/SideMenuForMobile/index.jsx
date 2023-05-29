@@ -2,7 +2,7 @@ import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 
-export default function SideMenuForMobile({ onClose ,CategoryClick}) {
+export default function SideMenuForMobile({ onClose }) {
     const { SubMenu } = Menu;
     const items = [
         {
@@ -30,16 +30,18 @@ export default function SideMenuForMobile({ onClose ,CategoryClick}) {
             key: 'PVC',
             items : [
                 { title: 'Vtuber', key: 'Vtuber' },
+                { title: '動畫', key: 'Animate' },
             ],
         },
         {
             title: '各式周邊',
             key: 'Merch',
             items : [
-                { title: '唱片', key: 'Cd' },
+                { title: '生活小物', key: 'item' },
             ],
         },
     ]
+
 
 
 
@@ -48,17 +50,16 @@ export default function SideMenuForMobile({ onClose ,CategoryClick}) {
             <Menu mode="inline" breakpoint="lg" selectable={false} style={{ width: '100%', borderInlineEnd: '0px' }}>
                 <Menu.Item key="1"><Link to="/">首頁</Link></Menu.Item>
                 {items.map((item) =>
-                    
-                        <SubMenu key={item.key} title={item.title} >
-                            <Menu.Item key={item.key+`total`} onClick = {()=>onClose()}><Link to={`/AllProducts/category/${item.key}`}>全部</Link></Menu.Item>
-                            {item.items.map((child) => (
-                                <Menu.Item key={child.key} >
-                                    <Link to={`/AllProducts/category/${item.key}/${child.key}`}>{child.title}</Link>
-                                </Menu.Item>
-                            ))}
-                        </SubMenu>
-
-                )}
+                
+                <SubMenu key={item.key}  title={item.title} >
+                    {item.items.map((child) => (
+                        <Menu.Item style={{borderRadius:'0px'}} key={child.key}>
+                             <Link to={`/AllProducts/category/${item.key}/${child.key}/1`}>{child.title}</Link>
+                        </Menu.Item> 
+                    ))}
+                </SubMenu>
+  
+        )}
                 <Menu.Item key="2"><Link to="/About">關於我們</Link></Menu.Item>
                 <Menu.Item key="3"><Link to="/Qa">常見問答</Link></Menu.Item>
                 <Menu.Item key="4"><Link to="">會員中心</Link></Menu.Item>

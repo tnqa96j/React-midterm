@@ -134,14 +134,14 @@ function Header() {
                 open={isDrawerOpen}
                 onClose={onClose}
                 placement="left"
-                width={'60%'}
+                width={'300px'}
                 style={{ backgroundColor: colorBgContainer }}
             >
                 <SideMenuForMobile onClose={onClose} />
-                {(isMobile) &&
+                
                     <div style={{ display: 'flex', flexDirection: 'row-reverse', marginTop: '1em' }}>
                         <DayNightSwitcher />
-                    </div>}
+                    </div>
             </Drawer>
 
 
