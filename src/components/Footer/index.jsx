@@ -9,13 +9,13 @@ export default function Footer() {
     2.一堆自*/
 
     const {
-        token: { colorBgHeader2, colorLogo, colorBgFooter }
+        token: { colorBgHeader2, colorLogo, colorBgFooter,colorPrimary }
     } = theme.useToken();
     return (
         <div className={styles.footer} style={{ backgroundColor:colorBgFooter  }}>
             <div className={styles.logo}>
                 <div className={styles.lo}>
-                    <Logo color={colorLogo}/>
+                    <Logo color={colorPrimary}/>
                 </div>
 
                 <div className={styles.icon}>

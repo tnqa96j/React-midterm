@@ -3,7 +3,8 @@ import Footer from "../components/Footer";
 import QA from "../components/QA";
 import { Helmet } from "react-helmet-async";
 import { theme } from "antd";
-
+import Footer1 from "../components/Footer1";
+import TopNavBar from "../components/TopNavbar";
 
 
 export default function Qa(){
@@ -22,12 +23,20 @@ export default function Qa(){
             }
         `}</style>
             </Helmet>
-            <Header />
+            <div className="top" style={{ backgroundColor: colorBgBase }}>
+                <div className="container">
+                    <Header />
+                </div>
+
+                <TopNavBar />
+            </div>
+            
                 <div className="container">
                     <div style={{marginTop:"10vh"}}></div>
                     <QA />
                     <div style={{marginTop:"20vh"}}></div>
                 </div>
+            <Footer1 />
             <Footer />
         </div>
     )

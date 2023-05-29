@@ -25,16 +25,17 @@ export default function Register() {
             `}</style>
             </Helmet>
 
-            <Header />
-
-            <div className="container">
-                <div style={{ marginTop: '10vh' }}></div>
-                <div style={{ display: "flex", flexDirection: 'row-reverse' }}>
-                    <DayNightSwitcher />
+            <div className="top" style={{ backgroundColor: colorBgBase }}>
+                <div className="container">
+                    <Header />
                 </div>
-                <h1>註冊</h1>
-                <RegisterCard redirect={redirect}/>
-                <div style={{ marginTop: '10vh' }}></div>
+            </div>
+
+            <div className="login">
+                <div className="container">
+                    <RegisterCard redirect={redirect} />
+                    <div style={{ marginTop: '10vh' }}></div>
+                </div>
             </div>
 
             <Footer />

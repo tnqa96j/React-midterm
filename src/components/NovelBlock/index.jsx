@@ -18,10 +18,10 @@ export default function NovelBlock({products}) {
 
     return (
         <div>
-            <div className={styles.block} style={{color:'#4d304b'}}>
+            <div className={styles.block} style={{color:'#fcfcfc',textShadow: '0 0 0.1em #000000,0 0 0.1em #4d304b,0 0 0.5em #4d304b'}}>
                 <h1>小說專區</h1>
                 <p className={styles.text}>不用多說這是小說。</p>
-                <Button type="primary" style={{ backgroundColor: '#6C5574', borderRadius: '0',width:'230px' }}>查看更多</Button>
+                <Button type="primary" style={{ backgroundColor: '#4d304b', borderRadius: '0',width:'230px',color:'#fcfcfc' }}>查看更多</Button>
             </div>
 
             <ul className={styles.ul}>

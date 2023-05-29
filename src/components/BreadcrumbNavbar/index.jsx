@@ -1,6 +1,7 @@
 import '../../App.css';
 import { Breadcrumb } from "antd";
 import { Link,  useParams } from "react-router-dom";
+import styles from './breadcrumbnavbar.module.css'
 
 export default function BreadcrumbNavbar({ product }) {
 
@@ -33,9 +34,9 @@ export default function BreadcrumbNavbar({ product }) {
       {(!productId)
         ? (!categoryName)
           ? (
-            <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
+            <Breadcrumb style={{ listStyleType: 'none' }} className={styles.bread} separator={">"}>
               <Breadcrumb.Item>
-                <Link to="/AllProducts/1">
+                <Link to="/AllProducts/1" >
                   商品總覽
                 </Link>
               </Breadcrumb.Item>
@@ -43,7 +44,7 @@ export default function BreadcrumbNavbar({ product }) {
           )
           : !subCategoryName
             ? (
-              <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
+              <Breadcrumb style={{ listStyleType: 'none'}} className={styles.bread} separator={">"}>
                 <Breadcrumb.Item>
                   <Link to="/AllProducts/1">
                     商品總覽
@@ -55,7 +56,7 @@ export default function BreadcrumbNavbar({ product }) {
                 </Breadcrumb.Item>
               </Breadcrumb>)
             : (
-              <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
+              <Breadcrumb style={{ listStyleType: 'none'}} className={styles.bread} separator={">"}>
                 <Breadcrumb.Item>
                   <Link to="/AllProducts/1">
                     商品總覽
@@ -72,7 +73,7 @@ export default function BreadcrumbNavbar({ product }) {
               </Breadcrumb>)
 
         : (
-          <Breadcrumb style={{ listStyleType: 'none', marginBottom: '5vh' }} separator={">"}>
+          <Breadcrumb style={{ listStyleType: 'none' }} className={styles.bread} separator={">"}>
             <Breadcrumb.Item>
               <Link to="/AllProducts/1">
                 商品總覽

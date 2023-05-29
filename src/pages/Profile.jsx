@@ -4,6 +4,7 @@ import ProfileCard from "../components/ProfileCard";
 import { Helmet } from "react-helmet-async";
 import DayNightSwitcher from "../components/DayNightSwitcher";
 import { theme } from "antd";
+import TopNavBar from "../components/TopNavbar";
 
 export default function Profile(){
     const {
@@ -21,15 +22,23 @@ export default function Profile(){
             `}</style>
             </Helmet>
 
-            <Header />
+            <div className="top" style={{backgroundColor:colorBgBase}}>
+                <div className="container">
+                    <Header />
+                </div>
+
+                <TopNavBar />
+            </div>
+            
             <div className="container">
                 <div style={{ marginTop: '10vh' }}></div>
-                <div style={{ display: "flex", flexDirection: 'row-reverse' }}>
-                    <DayNightSwitcher />
-                </div>
+
                 <h1>會員中心</h1>
+
                 <ProfileCard />
+
                 <div style={{ marginTop: '10vh' }}></div>
+                
             </div>
 
             <Footer />

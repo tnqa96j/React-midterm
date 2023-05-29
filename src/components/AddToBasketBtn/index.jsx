@@ -1,10 +1,14 @@
 import { Button, notification } from "antd"
 import { useDispatch } from "react-redux";
 import { addCartItems } from "../../redux/cartSlice";
+import { Basket } from "../Icons";
+import { useLocation } from "react-router-dom";
+import { theme } from "antd";
 
 
 export default function AddToBasketBtn({ product, qty }) {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const openNotification = (qty) => {
     (qty>0)
@@ -40,10 +44,29 @@ export default function AddToBasketBtn({ product, qty }) {
 
   const { countInStock } = product;
 
+  const {
+    token: { colorPrimary,badgeColor }
+} = theme.useToken();
+
   return (
 
-    <Button type="primary" block size="large" disabled={countInStock <= 0} style={{ display: 'block', marginTop: '2%', marginBottom: '2%' }} onClick={addToCart}>
-      加入購物車
-    </Button>
+    <>
+    {
+      location.pathname.startsWith("/AllProducts") 
+      ?(
+        <Button
+        icon={<Basket color={colorPrimary}/>}
+        disabled={countInStock <= 0}
+        onClick={addToCart}
+        type="link"
+      />
+      )
+      :(<Button type="primary" block size="large" disabled={countInStock <= 0} style={{ display: 'block', marginTop: '2%', marginBottom: '2%',borderRadius:'50px',width:'50%' }} onClick={addToCart}>
+          加入購物車
+        </Button>
+      )
+    }
+
+    </>
   );
 }

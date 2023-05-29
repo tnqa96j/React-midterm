@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { theme } from "antd";
 import Aboutus from "../components/Aboutus";
-
+import Footer1 from "../components/Footer1";
+import TopNavBar from "../components/TopNavbar";
 
 export default function About(){
 
@@ -21,12 +22,19 @@ export default function About(){
             }
         `}</style>
             </Helmet>
-            <Header />
+            <div className="top" style={{ backgroundColor: colorBgBase }}>
+                <div className="container">
+                    <Header />
+                </div>
+
+                <TopNavBar />
+            </div>
             <div className="container">
                     <div style={{ marginTop: '10vh' }}></div>
                     <Aboutus />
                     <div style={{ marginBottom: '20vh' }}></div>
                 </div>
+            <Footer1 />
             <Footer />
         </div>
     )

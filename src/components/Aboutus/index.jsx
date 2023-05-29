@@ -12,9 +12,6 @@ export default function Aboutus() {
 
     return (
         <div>
-            <div className={styles.switcher}>
-            <DayNightSwitcher />
-            </div>
             <Row>
 
                 <Col

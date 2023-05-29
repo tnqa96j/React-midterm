@@ -7,6 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 2.5fr 0.2fr;
     height:auto;
+    border-top: 1px solid #3B837A;
 }
 .logo{
     grid-area:logo;

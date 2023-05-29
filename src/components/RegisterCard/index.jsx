@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useRegisterWithEmailPassword } from '../../react-query';
 import { WarningOutlined } from '@ant-design/icons';
+import { theme } from 'antd';
 
 const { Option } = Select;
 const formItemLayout = {
@@ -51,6 +52,10 @@ export default function RegisterCard({ redirect }) {
         }
     }, [isSuccess, redirect]);
 
+    const {
+        token: { colorBgBase, colorPrimary },
+    } = theme.useToken();
+
     return (
         <Row gutter={[10, 20]}>
             <Col
@@ -59,7 +64,9 @@ export default function RegisterCard({ redirect }) {
                 lg={{ span: 12 }}
                 xl={{ span: 12 }}
                 className={styles.form}
+                style={{backgroundColor:colorBgBase,borderColor:colorBgBase}}
             >
+                <h1 style={{textAlign:'center',marginBottom:'2rem'}}>登錄</h1>
                 <Form
                     {...formItemLayout}
                     form={form}

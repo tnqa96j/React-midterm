@@ -7,7 +7,9 @@ import { useParams } from "react-router-dom";
 import { theme } from "antd";
 import BreadcrumbNavbar from "../components/BreadcrumbNavbar";
 import DayNightSwitcher from "../components/DayNightSwitcher";
-
+import TopNavBar from "../components/TopNavbar";
+import Footer1 from "../components/Footer1";
+import CategoryBanner from "../components/CategoryBanner";
 
 
 export default function AllProducts() {
@@ -37,13 +39,13 @@ export default function AllProducts() {
         x?.subCategory.toUpperCase() === subCategoryName.toUpperCase()
       )
 
-    
-      //單頁要渲染的商品數量
-      const startIndex = (parseInt(pageNumber) - 1) * 20;
-      const endIndex = parseInt(pageNumber) * 20;
-      const productsToDisplay = _products.slice(startIndex, endIndex);
-    
-      //還是要將符合類別的全部商品傳過去ProductsTotal，Pagination元件才能判斷數量
+
+  //單頁要渲染的商品數量
+  const startIndex = (parseInt(pageNumber) - 1) * 20;
+  const endIndex = parseInt(pageNumber) * 20;
+  const productsToDisplay = _products.slice(startIndex, endIndex);
+
+  //還是要將符合類別的全部商品傳過去ProductsTotal，Pagination元件才能判斷數量
 
   const title = !categoryName
     ? "商品總覽"
@@ -67,19 +69,28 @@ export default function AllProducts() {
         `}</style>
       </Helmet>
 
-      <Header />
-
-      <div className="container layoutContent">
-        <div style={{ marginTop: '10vh' }}></div>
-        <div style={{ display: "flex", flexDirection: 'row-reverse' }}>
-          <DayNightSwitcher />
+      <div className="top" style={{ backgroundColor: colorBgBase }}>
+        <div className="container">
+          <Header />
         </div>
-        <h1>商品列表</h1>
-        <BreadcrumbNavbar />
 
+        <TopNavBar />
+      </div>
+
+      <CategoryBanner />
+
+      <div className="bc">
+            <div className="container">
+            <BreadcrumbNavbar />
+            </div>
+      </div>
+
+      <div className="container">
         <ProductsTotal products={productsToDisplay} totalProducts={_products} isLoading={isLoading} />
         <div style={{ marginTop: '10vh' }}></div>
       </div>
+
+      <Footer1 />
       <Footer />
     </div>
   )

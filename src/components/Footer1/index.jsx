@@ -12,7 +12,7 @@ export default function Footer1() {
     return (
         <div className={styles.bg} style={{color:'#4d304b'}}>
             <div className='container'>
-                要尋找什麼商品呢？
+                正在尋找什麼商品呢？
                 <div className={styles.search}>
                     <Searching />
 

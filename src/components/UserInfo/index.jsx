@@ -27,11 +27,11 @@ export default function UserInfo() {
         <>
             {userInfo?.photoUrl
                 ? (<Avatar shape='circle' size={{
-                    xs: 32,
-                    sm: 32,
-                    md: 40,
-                    lg: 40,
-                    xl: 45,
+                    xs: 28,
+                    sm: 28,
+                    md: 28,
+                    lg: 28,
+                    xl: 28,
                 }} className={styles.user} src={userInfo.photoUrl} onClick={goToProfile} />)
                 : (<div className={styles.icon}  onClick={goToProfile} >
                     <User color={colorPrimary}/>

@@ -99,7 +99,7 @@ function Header() {
 
 
                 {
-                    isMobile2 ? (<div className={styles.space}></div>) : (
+                    isMobile2 ? (<div></div>) : (
                         <div className={styles.search}>
                             {isSearchInputOpen
                                 ? (<>

@@ -45,7 +45,7 @@ export default function SideMenu() {
 
 
     return (
-        <Menu mode="inline" breakpoint="lg" selectable={false} style={{width:'100%',borderInlineEnd:'0px',borderRadius:'0px'}}> 
+        <Menu mode="inline" breakpoint="lg" selectable={false} style={{width:'100%',borderRadius:'0px',borderBottomWidth:'1px'}}> 
 
             {items.map((item) =>
                 

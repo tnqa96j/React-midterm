@@ -43,7 +43,7 @@
 
 @media (min-width: 1440px) {  /*筆電*/
   .container {
-    width: 1380px;
+    width: 1300px;
   }
   } 
 
@@ -111,8 +111,31 @@ position: relative;
     margin-block: 0px!important; 
      width: 100%!important;
 }
+.ant-menu-light.ant-menu-root.ant-menu-inline{
+  border-inline-end:0!important;
+}
+.ant-menu-light.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+.ant-menu-light{
+  background: transparent!important;
+}
+.ant-menu-item.ant-menu-item-only-child{
+  padding: 0!important;
+  padding-left: 10px!important;
+  font-size: 0.7rem!important;
+  border-radius: 10px!important;
+}
+
+li.ant-menu-submenu.ant-menu-submenu-inline {
+  border-bottom: 1px solid #859f9b !important;
+  border-radius: 0px!important;
+}
+
 .ant-menu-submenu-title{
   border-radius: 0px!important;
+  padding-left: 0px!important;
 }
 .ant-menu-submenu-title:hover{
 background-color: transparent!important;
@@ -192,4 +215,24 @@ background-color: transparent!important;
 
 .swiper-wrapper{
   flex-direction:row !important;
+}
+
+
+.bc{
+  width:100%;
+  border: 1px solid #a7bab7;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 5rem;
+}
+
+.login{
+  background-color: #DFAEF0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23dbbcef' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23d7caef' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23d2d7ee' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23cee5ee' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23CAF3ED' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.ant-btn{
+  padding: 0 0!important;
 }

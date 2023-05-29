@@ -6,6 +6,7 @@ import AddToFavoriteBtn from '../AddToFavoriteBtn';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import _ from 'lodash';
 import { useToggleFavoriteProduct, useUserInfo } from '../../react-query';
+import AddToBasketBtn from '../AddToBasketBtn';
 
 
 
@@ -61,7 +62,7 @@ export default function ProductItem({ product, icon }) {
             </div>
 
             <div className={styles.shop}>
-              <ShoppingCartOutlined />
+              <AddToBasketBtn product={product} qty={1}/>
             </div>
 
           </div>)

@@ -27,9 +27,7 @@ const darkTheme = {
     
     badgeColor:'#c88ade', /*購物車的badge色 */
 
-    colorFillQuaternary:'#6C5574',
     colorPrimaryBg:'#DFAEF0',/*focus input框的顏色 */
-    colorBgTextHover:'#5A9790',
 
 
 
@@ -51,7 +49,7 @@ const lightTheme = {
 
     colorLogo:"#3B837A",/*logo顏色 */
 
-    colorBgFooter: "#DFAEF0",/*footer背景色 */
+    colorBgFooter: "#8960A9",/*footer背景色 */
  
     colorTopNavBar:"#4d304b",/*topnavbar的文字顏色 */
 
@@ -67,9 +65,9 @@ const lightTheme = {
 
     badgeColor:'#c88ade',
 
-    colorFillQuaternary:'#dfaef0',
+  
     colorPrimaryBg:'#DFAEF0', /*focus input框的顏色 */
-    colorBgTextHover:'#E9EB8A', /*hover超連結的顏色 */
+   /*hover超連結的顏色 */
 
     colorPrimary:'#4d304b'
 

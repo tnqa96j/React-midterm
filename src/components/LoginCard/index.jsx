@@ -5,6 +5,9 @@ import '../../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailPassword } from '../../react-query';
 import { useState, useEffect } from 'react';
+import { theme } from 'antd';
+
+
 const formItemLayout = {
     labelCol: {
         xs: {
@@ -29,6 +32,9 @@ const formItemLayout = {
         },
     },
 };
+
+
+
 const tailFormItemLayout = {
     wrapperCol: {
         xs: {
@@ -55,15 +61,22 @@ export default function LoginCard({ redirect }) {
         }
     }, [isSuccess, redirect]);
 
+    const {
+        token: { colorBgBase, colorPrimary },
+    } = theme.useToken();
+
+
     return (
-        <Row gutter={[10, 20]}>
+        <Row gutter={[10, 20]}> 
             <Col
                 xs={{ span: 18 }}
                 sm={{ span: 18 }}
                 lg={{ span: 10 }}
                 xl={{ span: 8 }}
                 className={styles.form}
+                style={{backgroundColor:colorBgBase,borderColor:colorBgBase}}
             >
+                <h1 style={{textAlign:'center',marginBottom:'2rem'}}>登錄</h1>
                 <Form
                     name="normal_login"
                     {...formItemLayout}
@@ -147,6 +160,7 @@ export default function LoginCard({ redirect }) {
                 </Form>
             </Col>
         </Row>
+
 
     );
 }

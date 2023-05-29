@@ -2,10 +2,24 @@
     display: flex;
     flex-direction: row-reverse;
 }
+.cc{
+    width:70%;
+}
 .p{
-    margin: 5% 5%;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 2;
+    padding: 5%;
 }
 .header{
     font-size: 1.2rem;
+}
+
+@media (max-width:576px) {
+   .cc{
+    width: 95%;
+   } 
+   .p{
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+   }
 }

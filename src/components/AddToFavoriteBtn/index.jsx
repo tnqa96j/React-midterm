@@ -3,6 +3,7 @@ import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { theme } from "antd";
 import { useUserInfo } from "../../react-query";
 import { useState,useEffect } from 'react';
+import { Like } from '../Icons';
 
 export default function AddToFavoriteBtn({ productId }) {
 
@@ -24,9 +25,13 @@ export default function AddToFavoriteBtn({ productId }) {
         setIsFilled(!isFilled);
     };
 
+    const {
+        token: { colorPrimary,badgeColor }
+    } = theme.useToken();
+
     return (
         <div onClick={toggleOpen} className={styles.favorite}>
-            {isFilled ? <HeartFilled /> : <HeartOutlined />}
+            {isFilled ? <Like color={"#DFAEF0"} fillColor={"#DFAEF0"}/> : <Like color={colorPrimary} fillColor={"transparent"}/>}
         </div>
     )
 }

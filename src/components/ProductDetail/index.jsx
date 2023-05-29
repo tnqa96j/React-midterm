@@ -1,12 +1,13 @@
 import styles from "./productdetail.module.css"
 import '../../App.css';
 import PaymentAndShipping from "../PaymentAndShipping";
-import { Row, Col, InputNumber, Image, Tabs, Spin } from "antd";
+import { Row, Col, InputNumber, Image, Tabs, Spin, Button } from "antd";
 import BreadcrumbNavbar from "../BreadcrumbNavbar";
 import AddToBasketBtn from "../AddToBasketBtn";
 import { useState } from "react";
 import { LoadingOutlined } from '@ant-design/icons';
 import Comments from "../Comments";
+import ProductSlider from "../ProductSlider";
 
 export default function ProductDetail({ product, isLoading }) {
 
@@ -51,6 +52,7 @@ export default function ProductDetail({ product, isLoading }) {
 
                 : (<div>
                     <BreadcrumbNavbar product={product}></BreadcrumbNavbar>
+                    <div style={{marginBottom:'3rem'}}></div>
                     <Row gutter={[32, 32]}>
                         <Col
                             xs={{ span: 24 }}
@@ -64,14 +66,25 @@ export default function ProductDetail({ product, isLoading }) {
 
                             <h1 className={styles.title}>{product.name}</h1>
                             <h2 className={styles.price}>{product.currency} {product.price}</h2>
-                            <h3 className={styles.countInstock}>{`在庫數量：${product.countInStock}`}</h3>
+                            
 
                             {countInStock > 0
-                                ? (<InputNumber size="large" min={1} max={product.countInStock} value={qty} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
-                                : (<InputNumber disabled size="large" min={0} max={0} defaultValue={0} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />)
+                                ? (<div style={{display:'flex' , alignItems:'center',gap:'1rem',marginTop:'4rem'}}>
+                                <h3>數量</h3>
+                                <InputNumber size="large" min={1} max={product.countInStock} value={qty} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />
+                                <h4 className={styles.countInstock}>{`在庫數量：${product.countInStock}`}</h4>
+                                </div>
+                                )
+                                : (<>
+                                <InputNumber disabled size="large" min={0} max={0} defaultValue={0} onChange={onChange} style={{ marginTop: '2%', marginBottom: '2%' }} />
+                                <h3 className={styles.countInstock}>{`在庫數量：${product.countInStock}`}</h3>
+                                </>
+                                )
                             }
-
-                            <AddToBasketBtn product={product} qty={qty} />
+                            <div style={{display:'flex',alignItems:'center',gap:'5%',marginTop:'1rem'}}>
+                                <AddToBasketBtn product={product} qty={qty} />
+                                <Button style={{borderRadius:'50px',width:'50%'}} size="large">直接購買</Button>
+                            </div>
                             <PaymentAndShipping />
                         </Col>
                     </Row>
@@ -81,7 +94,7 @@ export default function ProductDetail({ product, isLoading }) {
                             xs={{ span: 24 }}>
                             <Tabs
                                 onChange={onChange}
-                                type="card"
+                
                                 className={styles.tab}
                                 items={[
                                     {
@@ -89,7 +102,7 @@ export default function ProductDetail({ product, isLoading }) {
                                         key: "1",
                                         children: (
 
-                                            <div style={{ whiteSpace: 'pre-line' }}>
+                                            <div style={{ whiteSpace: 'pre-line' }} className={styles.descript}>
                                                 {`作者：${product.writer}\n\n`}
                                                 {product.description}
                                             </div>
@@ -100,7 +113,7 @@ export default function ProductDetail({ product, isLoading }) {
                                         label: "下單須知",
                                         key: "2",
                                         children: (
-                                            <>
+                                            <div className={styles.descript}>
                                                 <p>若您在十天鑑賞期(含例假日)內欲退貨，請參照常見問題。<br /><br />
                                                     ▶ 依消保法之規定提供商品十天鑑賞期(含例假日)的服務，原則若已將商品拆封即無法申請退貨！申請退貨商品須保持完整無誤、且無人為損傷的情形下才能申請。<br /><br />
                                                     ▶ 超商取貨有材積及重量限制，若您訂購的商品超過尺寸或重量，我們會通知您更改取貨方式。<br /><br />
@@ -111,7 +124,7 @@ export default function ProductDetail({ product, isLoading }) {
                                                     以數位或電磁紀錄形式儲存之商品、易於變質或損壞之商品、以及性質上無法或不適合退換之商品：如CD、VCD、DVD、電腦軟體，若產品瑕疵無法讀取僅接受原片換新。<br />
                                                     衣飾鞋類-如泳裝、T恤，如於送達後水洗或污損者。<br />
                                                 </p>
-                                            </>
+                                            </div>
                                         ),
                                     },
                                     {
@@ -128,6 +141,7 @@ export default function ProductDetail({ product, isLoading }) {
 
                         </Col>
                     </Row>
+                
                 </div >)
             }
         </>

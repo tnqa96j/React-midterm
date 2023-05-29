@@ -36,7 +36,7 @@ export default function ProductList({ products, isLoading }) {
                                         lg={{ span: 8 }}
                                         xl={{ span: 6 }}
                                     >
-                                        <ProductItem product={product} />
+                                        <ProductItem product={product} icon={true}/>
                                     </Col>
                                 ))}
                             </Row>

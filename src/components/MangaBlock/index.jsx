@@ -20,10 +20,10 @@ export default function MangaBlock({ products }) {
                     md={{ span: 24 }}
                     lg={{ span: 6 }}
                     xl={{ span: 7 }}>
-                    <div className={styles.block} style={{ color: '#4d304b' }}>
+                    <div className={styles.block} style={{color:'#fcfcfc',textShadow: '0 0 0.1em #000000,0 0 0.1em #4d304b,0 0 0.5em #4d304b'}}>
                         <h1 className={styles.h1}>漫畫<br />專區</h1>
-                        <p className={styles.text}>不用廢話這是漫畫。</p>
-                        <Button type="primary" style={{ backgroundColor: '#5A9790', borderRadius: '0', width: '60%',gridArea:'button' }}>查看更多</Button>
+                        <p className={styles.text}>不用廢話就是漫畫，這裡提供男性向、女性向、BL、GL等多元類型漫畫。</p>
+                        <Button type="primary" style={{ backgroundColor: '#35B1A2', borderRadius: '0', width: '50%',gridArea:'button',marginRight:'5%' }}>查看更多</Button>
                     </div>
                 </Col>
 
