@@ -378,6 +378,46 @@ export const getComments = async ({ queryKey }) => {
     return comments;
   };
 
+  export const getFavoriteProducts = async ({ queryKey }) => {
+    try {
+      const [id] = queryKey;
+      console.log("有傳到喔" + id);
+      const docRef = await doc(db, "users", id);
+      const docSnap = await getDoc(docRef);
+      const userInfo = docSnap.data();
+      console.log(userInfo);
+      const favorites = userInfo?.favorites || [];
+      console.log(favorites);
+  
+      const products = [];
+  
+      const q = query(collection(db, "products"), where("id", "in", favorites));
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach((doc) => {
+        const productData = doc.data();
+        products.push(productData);
+      });
+  
+      console.log("撈出的特定產品：", products);
+      return products;
+    } catch (error) {
+      console.error("撈出特定產品時發生錯誤：", error);
+      throw error;
+    }
+  };
 
+  
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
 
 

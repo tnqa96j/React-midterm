@@ -52,7 +52,7 @@ export default function AddToBasketBtn({ product, qty }) {
 
     <>
     {
-      location.pathname.startsWith("/AllProducts") 
+      location.pathname.startsWith("/AllProducts") || location.pathname.startsWith("/auth/profile")
       ?(
         <Button
         icon={<Basket color={colorPrimary}/>}

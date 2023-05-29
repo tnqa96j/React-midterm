@@ -1,11 +1,12 @@
 import styles from './profilecard.module.css'
 import UploadAvatar from '../UploadAvatar';
 import { useState, useEffect } from 'react';
-import { useUploadPhoto, useUpdateProfile, useLogout, useUserInfo } from '../../react-query';
+import { useUploadPhoto, useUpdateProfile, useLogout, useUserInfo,useGetFavoriteProducts } from '../../react-query';
 import { Button, Col, Form, Input, Row, Select, DatePicker, Upload, Avatar, Tabs, notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
+import ProductList from '../ProductList';
 
 
 
@@ -55,6 +56,8 @@ export default function ProfileCard({ redirect }) {
     const uploadPhoto = useUploadPhoto();
 
     const { data: userInfo } = useUserInfo() || {};
+    const { data:favoriteProduct,isLoading } = useGetFavoriteProducts(userInfo.uid) || {};
+    favoriteProduct?console.log("有喔") :console.log("沒喔")
 
     const update = useUpdateProfile();
     const logout = useLogout();
@@ -153,7 +156,7 @@ export default function ProfileCard({ redirect }) {
 
     const key = 'updatable';
 
-
+//更新資料成功出現
     const openNotification = () => {
         setTimeout(() => {
             notification.open({
@@ -165,7 +168,9 @@ export default function ProfileCard({ redirect }) {
             })
           }, 500);
         };
-        
+
+//撈ㄍ興趣清單
+
 
 
     
@@ -429,7 +434,10 @@ export default function ProfileCard({ redirect }) {
                     label: "我的興趣清單",
                     key: "2",
                     children: (
-                        <></>
+                        <div className={styles.m1}>
+                             <h1 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{userInfo.name}的興趣清單</h1>
+                        <ProductList products={favoriteProduct} isLoading={isLoading}/>
+                        </div>
                     ),
                 },
                 {
